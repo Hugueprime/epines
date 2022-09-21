@@ -1,0 +1,69 @@
+/*
+* Making the header more compact on the modules list
+*/
+.list-unstyled.list-inline.header-second-nav{
+    display: flex !important;
+}
+
+.header-second-infos{
+    flex-grow: 0 !important;
+    margin-top: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.header-second-inner{
+    padding-top: 5px !important;
+    height: auto !important;
+}
+
+.header-second{
+    height: auto !important;
+}
+
+.cursus-header-title{
+	margin-right: 30px !important;
+}
+
+.course-details{
+    margin: 10px 0 !important;
+}
+
+
+/*
+* Making the course progress container fixed on the side
+*/
+
+.course-page-wrapper {
+    margin: 150px auto 0 !important;
+}
+
+@media screen and (min-width: 1000px) {
+   .course-progress-wrapper{
+       position: fixed;
+   }
+}
+
+
+/*
+* Making module description more compact
+*/
+
+/*padding description */
+.course-component-module-mimo .course-component-body {
+    padding: 15px 20px 15px 120px !important;
+}
+
+/* size block */
+.course-component-body {
+    min-height: 110px !important;
+}
+
+.course-component-status {
+    top: auto !important;
+}
+
+.course-component.course-component-module-mimo{
+    display: flex !important;
+    align-items: center !important;
+}
