@@ -1,3 +1,5 @@
+const DEFAULT_VIDEO_PLAYER = "yewtu.be";
+
 /*
 * INIT
 */
