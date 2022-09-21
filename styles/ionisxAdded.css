@@ -1,0 +1,93 @@
+/*
+* Summary design
+*/
+.epines-active{
+    display: block !important;
+}
+
+#epines-hoverSummary{
+    width: auto;
+    height: auto;
+    z-index: 1;
+    border: #0075b4 solid 1px;
+    border-radius: 0.1875rem;
+    display: none;
+    position: absolute;
+    top:116px;
+    background-color: white;
+}
+
+.epines-dark {
+    background-color: #181a1b;
+}
+
+#epines-hoverSummary:hover{
+    display: block;
+}
+
+a.epines{
+    color: #0075b4;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a.epines-dark{
+    color: #aeaaa4;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+ol.epines{
+    padding: 0 10px;
+}
+
+li.epines, li.epines-dark{
+    list-style-type: decimal;
+    padding: 3px 0px 3px 3px;
+    margin-left: 19px;
+}
+
+li.epines:hover{
+    background-color: #dadada;
+}
+
+li.epines-dark:hover{
+    opacity: 0.5;
+    background-color: #1d1f21;
+}
+
+.fa.fa-check, .fa-uncheck{
+    float: right;
+    width: 16px;
+    height: 16px;
+    color: green;
+    margin: 0 4px;
+}
+
+/*
+* DATES
+*/
+.epines-dateToDo{
+    float: right;
+    margin-right: 10px;
+}
+
+.epines-DoneWeek{
+    color:rgb(6, 124, 2);
+}
+
+.epines-PastWeek{
+    color:rgb(226, 21, 21);
+}
+
+.epines-ActualWeek{
+    color:rgb(196, 28, 196);
+}
+
+.epines-NextWeek{
+    color:rgb(108, 78, 216);
+}
+
+.epines-FuturWeek{
+    color:rgb(105, 100, 100);
+}
