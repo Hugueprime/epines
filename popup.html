@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./front/popup.css">
+    <link rel="stylesheet" type="text/css" href="./front/switch.css">
+    <link rel="stylesheet" type="text/css" href="./front/toggle.css">
+
+    <script defer src="config.js"></script>
+    <script defer src="./front/toggle.js"></script>
+    <script defer src="./front/popup.js"></script>
+</head>
+
+<body>
+    <header>
+        <a class="" href="">Epines</a>
+    </header>
+    
+    <main>
+        <section>
+            <h4 class="title">Custom Video Player</h4>
+            <div class="toggle_header" id="customVideo">
+                <span class="toggle">
+                    <span id="videoPlayerOn" class="toggle_btn ">Active</span>
+                    <span id="videoPlayerOff" class="toggle_btn toggle_btn--active">Inactive</span>
+                </span>
+            </div>
+
+            <span id="videoPlayer-config" class="input_label">
+                <input type="text" id="instanceVideoPlayer" pattern="([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"/>
+            </span>
+        </section>
+    
+        <section>
+            <h4 class="title">Custom Deadline</h4>
+            <span class="input_label">
+                <label>URL deadline server :</label>
+                <input type="text" id="URLDeadline" pattern="([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"/>
+            </span>
+            <span class="inline">
+                <label>Last check: 01/01</label>
+                <label>v0.0</label>
+            </span>
+        </section>
+
+
+        <section class="menu">
+            <h3 class="title">Links </h3>
+            <span class="links-global">
+                <a class="link" href="https://moodle.cri.epita.fr/">Moodle (cours)</a>
+                <a class="link" href="https://rocketchat.cri.epita.fr/">Rocket Chat</a>
+                <a class="link" href="https://past-exams.epidocs.eu/">Epidocs (exams)</a>
+                <a class="link" href="https://outlook.office.com/mail/inbox">Outlook</a>
+                <a class="link" href="https://zeus.ionis-it.com/home">Zeus</a>
+                <a class="link" href="https://prepa-epita.helvetius.net/pegasus/index.php#">Pegasus</a>
+                <a class="link" href="https://ionisx.com/dashboard">Ionisx</a>
+                <a></a>
+            </span>
+        </section>
+        
+    </main>
+    
+    <footer>
+        <a class="link" href="https://github.com/Hugueprime/epines">Project's repo</a>
+        <span class="version">v0.1.0</span>
+    </footer>
+    
+
+
+</body>
+
+</html>
