@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./front/popup.css">
-    <link rel="stylesheet" type="text/css" href="./front/switch.css">
-    <link rel="stylesheet" type="text/css" href="./front/toggle.css">
+    <link rel="stylesheet" type="text/css" href="./popup.css">
+    <link rel="stylesheet" type="text/css" href="./switch.css">
+    <link rel="stylesheet" type="text/css" href="./toggle.css">
 
-    <script defer src="config.js"></script>
-    <script defer src="./front/toggle.js"></script>
-    <script defer src="./front/popup.js"></script>
+    <script defer src="./toggle.js"></script>
+    <script defer src="./popup.js"></script>
 </head>
 
 <body>
@@ -35,6 +34,12 @@
     
         <section>
             <h4 class="title">Custom Deadline</h4>
+            <!-- <div class="toggle_header" id="customVideo">
+                <span class="toggle">
+                    <span id="videoPlayerOn" class="toggle_btn ">Active</span>
+                    <span id="videoPlayerOff" class="toggle_btn toggle_btn--active">Inactive</span>
+                </span>
+            </div> -->
             <span class="input_label">
                 <label>URL deadline server :</label>
                 <input type="text" id="URLDeadline" pattern="([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"/>

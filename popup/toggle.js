@@ -5,17 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     //video player toggle
     document.getElementById('videoPlayerOn').addEventListener('click', function(e){
         toggleActive(e.target.parentNode.firstElementChild, e.target.parentNode.lastElementChild, true);
-        addToLocalStorage(isVideoPlayerActive, true);
+        addToLocalStorage('isVideoPlayerActive', true);
         setEltClass(document.getElementById('videoPlayer-config'), "disabled", false);
     });
     document.getElementById('videoPlayerOff').addEventListener('click', function(e){
         toggleActive(e.target.parentNode.lastElementChild, e.target.parentNode.firstElementChild, false);
-        addToLocalStorage(isVideoPlayerActive, false);
+        addToLocalStorage('isVideoPlayerActive', false);
         setEltClass(document.getElementById('videoPlayer-config'), "disabled", true);
     });
 
-    chrome.storage.local.get(isVideoPlayerActive, function(result){
-        if (result[isVideoPlayerActive]) {
+    chrome.storage.local.get('isVideoPlayerActive', function(result){
+        if (result['isVideoPlayerActive']) {
             const httpElt =  document.getElementById("videoPlayerOn")
             toggleActive(httpElt, httpElt.parentNode.lastElementChild)
             setEltClass(document.getElementById('videoPlayer-config'), "disabled", false);
