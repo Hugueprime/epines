@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    width: 250px;
+    border: 2px solid white;
+    font-family: Open Sans, Segoe UI, Helvetica Neue, Ubuntu, sans-serif;
+    font-size: 0.75rem;
+    --background-color: #141e24;
+    --main-color: #316e7d;
+    --second-light: rgb(103, 146, 184);
+    --second-dark: #27333a;
+    --discret: #3e8cb9;
+    --title-color: #53a1b3;
+    --text-color: rgb(207, 207, 207);
+    background-color: var(--background-color);
+    /* #53a1b3 */
+    /* #193945 */
+}
+
+header{
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 2px;
+    border: 2px solid var(--main-color);
+    border-radius: 2px;
+
+    margin: 5px 5px 0 5px;
+}
+
+main{
+    padding: 10px
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px
+}
+
+
+section{
+    border: 0.125rem solid var(--main-color);
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.title{
+    position: relative;
+    margin: 0px;
+    margin-top: -17px;
+    width: fit-content;
+}
+
+.input_label{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+a, h3, h4{
+    background-color: var(--background-color);
+    text-decoration: none;
+    color:  var(--title-color);
+    padding: 2px;
+}
+
+.disabled{
+    opacity: 0.5;
+}
+
+.full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+a:hover {
+    opacity: 0.8;
+}
+
+label, button{
+    color: var(--text-color);
+}
+
+input:invalid{
+    border: 2px solid var(--second-dark);
+}
+
+label{
+    width: fit-content;
+}
+
+button{
+    background-color: var(--main-color);
+    text-decoration: none;
+    border-radius: 2px;
+    border:none;
+    outline:none;
+}
+
+input{
+    margin-top: 5px;
+    text-decoration: none;
+    border: 2px solid var(--main-color);
+    border-radius: 2px;
+    background-color: var(--background-color);
+    outline: none;
+    color: var(--text-color)
+}
+
+button:hover{
+    opacity: 0.8;
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.version{
+    float: right;
+    margin: 0;
+    position: relative;
+    margin-bottom: -8px;
+    color: white;
+}
+
+
+.links-global{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.inline{
+    display: flex;
+    justify-content: space-between;
+}
+

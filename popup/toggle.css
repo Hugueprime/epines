@@ -1,0 +1,120 @@
+
+/* 
+    toggle normal duo
+*/
+.toggle_header{
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    position: relative;
+    margin-bottom: 6px;
+}
+
+.toggle {
+    background-color: var(--background-color);
+    border: 0.125rem solid var(--main-color);
+    box-sizing: content-box;
+    color: #ffffff;
+    display: inline-flex;
+    height: 1.5rem;
+    position: relative;
+    -moz-user-select: none;
+    user-select: none;
+}
+.toggle_btn {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 250ms;
+    white-space: nowrap;
+    width: 50%;
+}
+.toggle::before {
+    background-color: var(--main-color);
+    content: "";
+    display: inline-block;
+    height: 102%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transition: left 125ms;
+    width: 50%;
+}
+
+.toggle.discret::before {
+    background-color: var(--discret);
+}
+
+.toggle--checked::before {
+    left: 0;
+}
+
+/* 
+    toggle trio
+*/
+.toggle_btn3 {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 250ms;
+    white-space: nowrap;
+    width: 50%;
+}
+.toggle_3 {
+    background-color: var(--background-color);
+    border: 0.125rem solid var(--main-color);
+    box-sizing: content-box;
+    color: #ffffff;
+    display: inline-flex;
+    height: 1.5rem;
+    position: relative;
+    -moz-user-select: none;
+    user-select: none;
+}
+.toggle_3 > .toggle_btn {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 250ms;
+    white-space: nowrap;
+    width: calc(100%/3);
+}
+.toggle_3::before {
+    background-color: var(--main-color);
+    content: "";
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: left 125ms;
+    width: calc(100%/3);
+}
+.toggle_3.discret::before {
+    background-color: var(--discret);
+}
+.toggle_3--0::before {
+    left: 0;
+}
+.toggle_3--1::before {
+    left: calc(100%/3);
+}
+.toggle_3--2::before {
+    left: calc(2*100%/3);
+}
+.toggle_3 span:nth-child(2n){
+    border-left: 0.125rem solid var(--main-color);
+    border-right: 0.125rem solid var(--main-color);
+}
