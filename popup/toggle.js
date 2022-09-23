@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             setEltClass(document.getElementById('videoPlayer-config'), "disabled", true);
         }
-    });  
+    });
 });
 
 function setEltClass(elt, className, set){

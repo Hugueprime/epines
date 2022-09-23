@@ -149,7 +149,15 @@ function changeInstanceMediaPlayer() {
         }, 250)
     }
 
-    const instance = DEFAULT_INSTANCE;
-    waitForIFrame(0, instance);
-    
+    chrome.storage.local.get("isVideoPlayerActive", function(res){
+        //media player is not enabled
+        if (!res.isVideoPlayerActive) {
+            return;
+        }
+
+        chrome.storage.local.get("instanceVideoPlayer", function(result){
+            const instance = result.instanceVideoPlayer ?? DEFAULT_INSTANCE;
+            waitForIFrame(0, instance);
+        });
+    });
 }

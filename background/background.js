@@ -13,14 +13,23 @@ function onError(error) {
 
 function blockRequest(result) {
     function blockYt(page) {
-        const instance = result.instance || "yewtu.be";
-        return { cancel: page.originUrl.includes("courses.ionisx.com") && !instance.includes("www.youtube.com") };
+        chrome.storage.local.get("isVideoPlayerActive", function(res){
+            //media player is not enabled
+            if (!res.isVideoPlayerActive) {
+                return;
+            }
+
+            const instance = result.instanceVideoPlayer || "yewtu.be";
+            return { cancel: page.url.includes("courses.ionisx.com") && !instance.includes("www.youtube.com") };
+        });
     }
 
     chrome.webRequest.onBeforeRequest.addListener(page => { return blockYt(page) },
         filter,
-        webRequestFlags);
+        webRequestFlags
+    );
 };
 
-let getting = chrome.storage.local.get("instance");
-getting.then(blockRequest, onError);
+chrome.storage.local.get("instanceVideoPlayer", function(result){
+    blockRequest(result);
+});

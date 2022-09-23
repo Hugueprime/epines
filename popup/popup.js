@@ -31,7 +31,7 @@ chrome.storage.local.get('URLDeadline', function(result){
 });
 
 /*
-* Set listener to set localStorage
+* Set listener to set localStorage on input changes
 */
 document.getElementById('instanceVideoPlayer').addEventListener('change', function(e){
     if(e.target.value == '') clearLocalStorage('instanceVideoPlayer');
