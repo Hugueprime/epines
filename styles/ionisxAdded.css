@@ -91,3 +91,11 @@ li.epines-dark:hover{
 .epines-FuturWeek{
     color:rgb(105, 100, 100);
 }
+
+#epines-legend {
+    min-height: 140px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+}
