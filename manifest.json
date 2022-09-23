@@ -37,6 +37,7 @@
         "webRequest",
         "webRequestBlocking",
         "storage",
-        "*://www.youtube.com/*"
+        "*://www.youtube.com/*",
+        "https://usiobe.com/*"
     ]
 }
