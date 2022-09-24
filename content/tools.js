@@ -25,15 +25,3 @@ const isDarkReaderEnabled = () => "querySelector" in document &&
     !!document.querySelector("meta[name=darkreader]");
 
 const removeElements = (elms) => elms.forEach(el => el.remove());
-
-
-/*
-* Browser related
-*/
-function addToLocalStorage(nameKey, value) {
-    chrome.storage.local.set({[nameKey]: value}, function() {});
-}
-
-function clearLocalStorage(nameKey) {
-    chrome.storage.local.remove(nameKey);
-}

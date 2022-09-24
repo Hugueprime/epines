@@ -28,6 +28,23 @@ chrome.storage.local.get('URLDeadline', function(result){
     }
 });
 
+//dates
+function updateDatesValues() {
+    chrome.storage.local.get('datesLastCheck', function(result){
+        console.log(result)
+        if(result['datesLastCheck']){
+            document.getElementById('datesLastCheck').innerText = `Last check: ${result['datesLastCheck']}`;
+        }
+    });
+    
+    chrome.storage.local.get('datesLastVersion', function(result){
+        if(result['datesLastVersion']){
+            document.getElementById('datesLastVersion').innerText = 'v'+result['datesLastVersion'];
+        }
+    });
+}
+updateDatesValues();
+
 /*
 * Set listener to set localStorage on input changes
 */
@@ -41,13 +58,17 @@ document.getElementById('URLDeadline').addEventListener('change', function(e) {
     else addToLocalStorage('URLDeadline', e.target.value);
 });
 
-/*
-* TOOLS
-*/
-function addToLocalStorage(nameKey, value) {
-    chrome.storage.local.set({[nameKey]: value}, function() {});//set local
-}
-
-function clearLocalStorage(nameKey) {
-    chrome.storage.local.remove(nameKey);
-}
+// listener to update changes in dates
+const fetchButton = document.getElementById('datesFetch');
+fetchButton.addEventListener('click', function(e) {
+    fetchButton.disabled = true;
+    fetchButton.innerText = "Fetching..."
+    updateDates(true).then(() => {
+        updateDatesValues();
+        fetchButton.innerText = "Fetched"
+        fetchButton.disabled = true;
+    }).catch(rej => {
+        fetchButton.innerText = rej;
+        fetchButton.disabled = true;
+    });
+});
