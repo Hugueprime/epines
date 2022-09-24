@@ -20,7 +20,7 @@ function mainIonisx() {
         reduceHeader();
         giveAccessToBlockedModules();
         chrome.storage.local.get("datesActive", function(res) {
-            if (res.datesActive || true) { //todo
+            if (res.datesActive) {
                 showDates();
             }
         });

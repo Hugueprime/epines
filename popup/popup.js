@@ -55,7 +55,9 @@ document.getElementById('instanceVideoPlayer').addEventListener('change', functi
 
 document.getElementById('URLDeadline').addEventListener('change', function(e) {
     if(e.target.value == '') clearLocalStorage('URLDeadline');
-    else addToLocalStorage('URLDeadline', e.target.value);
+    else if(e.target.value.match('https?://([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}')) {
+        addToLocalStorage('URLDeadline', e.target.value);
+    }
 });
 
 // listener to update changes in dates
