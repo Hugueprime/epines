@@ -31,7 +31,6 @@ chrome.storage.local.get('URLDeadline', function(result){
 //dates
 function updateDatesValues() {
     chrome.storage.local.get('datesLastCheck', function(result){
-        console.log(result)
         if(result['datesLastCheck']){
             document.getElementById('datesLastCheck').innerText = `Last check: ${result['datesLastCheck']}`;
         }

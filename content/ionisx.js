@@ -166,18 +166,15 @@ function changeInstanceMediaPlayer() {
 
 function showDates() {
     updateDates().then(() => {
-        console.log("dates")
 	    const options = { month: 'short', day: 'numeric'};
         const coursesList = window.location.href.match(/https:\/\/ionisx\.com\/courses\/[a-z0-9]{24}\/([a-z0-9\-]*)/)[1].replaceAll('-', '_');
 
         chrome.storage.local.get([coursesList], function(dates) {
-            console.log(dates)
             if (Object.keys(dates).length == 0) {
                 return;
             }
             dates = dates[coursesList];
             dates = JSON.parse(dates);
-            console.log(dates)
             for(const k in dates) {
                 const module = document.getElementsByClassName("module-number")[k].parentElement;
                 const span = document.createElement("span");

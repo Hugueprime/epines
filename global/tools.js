@@ -9,18 +9,13 @@ function updateDates(force = false) {
             ) { //sync if last is one week old or doesn't exist
 
                 chrome.storage.local.get('URLDeadline', function(url) {
-                    console.log(url)
                     if (url.URLDeadline) {
                         fetch(url.URLDeadline, {cache: "no-store"}).then(r => r.text()).then(result => {
                             result = JSON.parse(result);
                             if (result) {
-                                console.log("add")
                                 addToLocalStorage('datesLastCheck', today.toLocaleDateString("fr-FR", {day: 'numeric', month: 'numeric'}));
                                 chrome.storage.local.get('datesLastVersion', function(version) {
-                                    console.log(version)
-                                    console.log(result.version)
                                     if (!version.datesLastVersion || result.version > version.datesLastVersion) {
-                                        console.log("update")
                                         addToLocalStorage('datesLastVersion', result.version);
                                         Object.keys(result.dates).forEach((elt) => {
                                             addToLocalStorage(elt.replaceAll('-', "_"), JSON.stringify(result.dates[elt]));
