@@ -37,7 +37,9 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 10px
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 1px;;
 }
 
 
@@ -45,6 +47,7 @@ section{
     border: 0.125rem solid var(--main-color);
     padding: 4px;
     display: flex;
+    gap: 5px;
     flex-direction: column;
     margin-top: 15px;
 }
@@ -54,6 +57,12 @@ section{
     margin: 0px;
     margin-top: -17px;
     width: fit-content;
+}
+
+.decla {
+    width: auto !important;
+    text-align: center;
+    border-top: 2px solid var(--second-dark);
 }
 
 .input_label{
@@ -128,11 +137,7 @@ button:hover{
 }
 
 .version{
-    float: right;
-    margin: 0;
-    position: relative;
-    margin-bottom: -8px;
-    color: white;
+    color: var(--text-color);
 }
 
 
