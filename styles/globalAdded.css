@@ -1,10 +1,17 @@
 #epines-copyButton {
     height: 20px;
-    width: auto;
+    width: fit-content;
+    margin: 0 8px;
     filter: invert(91%) sepia(10%) saturate(357%) hue-rotate(196deg) brightness(98%) contrast(92%);
+    position: absolute;
+    right: 10px;
 }
 
 #epines-copyButton:hover {
     opacity: 0.5;
     cursor: pointer;
+}
+
+.epines-buttonTopRight {
+    top: 10px;
 }
