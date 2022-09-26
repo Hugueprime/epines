@@ -2,10 +2,13 @@ function createCopyButton(elt, s) {
     const img = document.createElement("img");
     img.setAttribute("src", "https://www.svgrepo.com/show/86790/copy.svg");
     img.id = "epines-copyButton";
+    if (elt.parentElement.offsetHeight > 100) {
+       img.classList.add("epines-buttonTopRight");
+    }
     elt.parentElement.style.display = "flex";
     elt.parentElement.style.alignItems = "center";
     elt.parentElement.appendChild(img)
-
+    elt.parentElement.style.position = "relative";
     img.addEventListener("click", () => {
         copyToClipboard(s);
     });

@@ -1,5 +1,5 @@
 function isDebugProUrl() {
-    return url.substring(0, 20) == "http://debug-pro.com";
+    return url.substring(0, 24) == "http://www.debug-pro.com";
 }
 
 function mainDebugPro() {

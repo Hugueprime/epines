@@ -19,8 +19,8 @@ function mainIonisx() {
     if (isModuleListUrl()) {
         reduceHeader();
         giveAccessToBlockedModules();
-        chrome.storage.local.get("datesActive", function(res) {
-            if (res.datesActive) {
+        chrome.storage.local.get("isDatesActive", function(res) {
+            if (res.isDatesActive) {
                 showDates();
             }
         });
@@ -193,7 +193,7 @@ function showDates() {
                     } else if (dateStart.getTime() < today.getTime() && today.getTime() < dateEnd.getTime()) { //current week
                         span.classList.add("epines-ActualWeek");
                     } else {
-                        today.setDate(today.getDate() + 7);//next week
+                        today.setDate(today.getDate() + 6);//next week
                         if (dateStart.getTime() < today.getTime() && today.getTime() < dateEnd.getTime()) {//next week
                             span.classList.add("epines-NextWeek");
                         } else { //futur week
