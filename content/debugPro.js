@@ -1,16 +1,17 @@
 function isDebugProUrl() {
-    return url.substring(0, 20) == 'http://debug-pro.com';
+    return url.substring(0, 20) == "http://debug-pro.com";
 }
 
 function mainDebugPro() {
     // Set copy button
-    code = document.getElementsByTagName('code');
-    for (let i = 0; i < code.length; i++) {
-        if (code[i].textContent[0] == '$') { // Tests
-            createCopyButton(code[i], parseTest(code[i].textContent));
+    pre = document.getElementsByTagName('pre');
+    for (let i = 0; i < pre.length; i++) {
+        str = pre[i].children[0].textContent;
+        if (str[0] == '$') { // Tests
+            createCopyButton(pre[i].children[0], parseTest(str));
         }
         else { // Gived file
-            createCopyButton(code[i], code[i].textContent);
+            createCopyButton(pre[i].children[0], str);
         }
     }
 }
