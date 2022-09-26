@@ -21,6 +21,6 @@ function moveAssignementsOnTop() {
 
 function copyButtonForGitUrl() {
     const gitUrlElt = document.getElementsByClassName('gitUrl')[0];
-    createCopyButton(gitUrlElt);
+    createCopyButton(gitUrlElt, elt.textContent);
 }
 
