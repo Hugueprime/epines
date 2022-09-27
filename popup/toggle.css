@@ -7,7 +7,6 @@
     flex-direction: column;
     min-width: 0;
     position: relative;
-    margin-bottom: 6px;
 }
 
 .toggle {

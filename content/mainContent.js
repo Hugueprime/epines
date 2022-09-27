@@ -3,4 +3,6 @@ if (isIntraAssistantUrl()) {
     mainIntraAssistant();
 } else if (isIonisxUrl()) {
     mainIonisx();
+} else if (isDebugProUrl()) {
+    mainDebugPro();
 }

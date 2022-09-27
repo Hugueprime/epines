@@ -8,17 +8,21 @@
             "matches":[
                 "https://intra.assistants.epita.fr/*",
                 "https://ionisx.com/*",
-                "https://courses.ionisx.com/*"
+                "https://courses.ionisx.com/*",
+                "http://www.debug-pro.com/epita/*"
             ],
             "js": [
+                "/global/tools.js",
                 "/content/tools.js",
                 "/content/intraAssistants.js",
+                "/content/debugPro.js",
                 "/content/ionisx.js",
                 "/content/mainContent.js"
             ],
             "css":[
                 "/styles/globalAdded.css",
                 "/styles/ionisxAdded.css",
+                "/styles/debugPro.css",
                 "/styles/ionisx.css"
             ]
 

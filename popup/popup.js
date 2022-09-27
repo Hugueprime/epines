@@ -17,39 +17,59 @@ for(let k = 0; k < document.getElementsByClassName("link").length; k++){
 * Get old state
 */
 chrome.storage.local.get('instanceVideoPlayer', function(result){
-    console.log(result)
     if(result['instanceVideoPlayer']){
         document.getElementById('instanceVideoPlayer').value = result['instanceVideoPlayer'];
     }
 });
 
 chrome.storage.local.get('URLDeadline', function(result){
-    console.log(result)
     if(result['URLDeadline']){
         document.getElementById('URLDeadline').value = result['URLDeadline'];
     }
 });
 
+//dates
+function updateDatesValues() {
+    chrome.storage.local.get('datesLastCheck', function(result){
+        if(result['datesLastCheck']){
+            document.getElementById('datesLastCheck').innerText = `Last check: ${result['datesLastCheck']}`;
+        }
+    });
+    
+    chrome.storage.local.get('datesLastVersion', function(result){
+        if(result['datesLastVersion']){
+            document.getElementById('datesLastVersion').innerText = 'v'+result['datesLastVersion'];
+        }
+    });
+}
+updateDatesValues();
+
 /*
-* Set listener to set localStorage
+* Set listener to set localStorage on input changes
 */
-document.getElementById('instanceVideoPlayer').addEventListener('change', function(e){
+document.getElementById('instanceVideoPlayer').addEventListener('change', function(e) {
     if(e.target.value == '') clearLocalStorage('instanceVideoPlayer');
     else addToLocalStorage('instanceVideoPlayer', e.target.value);
-})
+});
 
-document.getElementById('URLDeadline').addEventListener('change', function(e){
+document.getElementById('URLDeadline').addEventListener('change', function(e) {
     if(e.target.value == '') clearLocalStorage('URLDeadline');
-    else addToLocalStorage('URLDeadline', e.target.value);
-})
+    else if(e.target.value.match('https?://([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}')) {
+        addToLocalStorage('URLDeadline', e.target.value);
+    }
+});
 
-/*
-* TOOLS
-*/
-function addToLocalStorage(nameKey, value){
-    chrome.storage.local.set({[nameKey]: value}, function() {});//set local
-}
-
-function clearLocalStorage(nameKey){
-    chrome.storage.local.remove(nameKey);
-}
+// listener to update changes in dates
+const fetchButton = document.getElementById('datesFetch');
+fetchButton.addEventListener('click', function(e) {
+    fetchButton.disabled = true;
+    fetchButton.innerText = "Fetching..."
+    updateDates(true).then(() => {
+        updateDatesValues();
+        fetchButton.innerText = "Fetched"
+        fetchButton.disabled = true;
+    }).catch(rej => {
+        fetchButton.innerText = rej;
+        fetchButton.disabled = true;
+    });
+});

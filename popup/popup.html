@@ -8,13 +8,14 @@
     <link rel="stylesheet" type="text/css" href="./switch.css">
     <link rel="stylesheet" type="text/css" href="./toggle.css">
 
+    <script defer src="../global/tools.js"></script>
     <script defer src="./toggle.js"></script>
     <script defer src="./popup.js"></script>
 </head>
 
 <body>
     <header>
-        <a class="" href="">Epines</a>
+        <h3><a href="https://github.com/Hugueprime/epines" class="link">Epines</a></h3>
     </header>
     
     <main>
@@ -34,19 +35,20 @@
     
         <section>
             <h4 class="title">Custom Deadline</h4>
-            <!-- <div class="toggle_header" id="customVideo">
+            <div class="toggle_header" id="customVideo">
                 <span class="toggle">
-                    <span id="videoPlayerOn" class="toggle_btn ">Active</span>
-                    <span id="videoPlayerOff" class="toggle_btn toggle_btn--active">Inactive</span>
+                    <span id="datesOn" class="toggle_btn ">Active</span>
+                    <span id="datesOff" class="toggle_btn toggle_btn--active">Inactive</span>
                 </span>
-            </div> -->
-            <span class="input_label">
-                <label>URL deadline server :</label>
-                <input type="text" id="URLDeadline" pattern="([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"/>
+            </div>
+            <span  id="dates-config" class="input_label">
+                <label class='decla'>URL deadline server :</label>
+                <input type="text" id="URLDeadline" pattern="https?://([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"/>
             </span>
+            <button id='datesFetch'>Fetch</button>
             <span class="inline">
-                <label>Last check: 01/01</label>
-                <label>v0.0</label>
+                <label id='datesLastCheck'>Last check: 00/00</label>
+                <label id='datesLastVersion'>v0.0</label>
             </span>
         </section>
 
@@ -55,7 +57,6 @@
             <h3 class="title">Links </h3>
             <span class="links-global">
                 <a class="link" href="https://moodle.cri.epita.fr/">Moodle (cours)</a>
-                <a class="link" href="https://rocketchat.cri.epita.fr/">Rocket Chat</a>
                 <a class="link" href="https://past-exams.epidocs.eu/">Epidocs (exams)</a>
                 <a class="link" href="https://outlook.office.com/mail/inbox">Outlook</a>
                 <a class="link" href="https://zeus.ionis-it.com/home">Zeus</a>
@@ -68,7 +69,7 @@
     </main>
     
     <footer>
-        <a class="link" href="https://github.com/Hugueprime/epines">Project's repo</a>
+        <a class="link" href="https://linktr.ee/makerlab.epita">With Makerlab x l'atelier (Stras)</a>
         <span class="version">v0.1.0</span>
     </footer>
     

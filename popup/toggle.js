@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setEltClass(document.getElementById('videoPlayer-config'), "disabled", true);
     });
 
+    //init
     chrome.storage.local.get('isVideoPlayerActive', function(result){
         if (result['isVideoPlayerActive']) {
             const httpElt =  document.getElementById("videoPlayerOn")
@@ -22,7 +23,30 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             setEltClass(document.getElementById('videoPlayer-config'), "disabled", true);
         }
-    });  
+    });
+
+    //dates toggle
+    document.getElementById('datesOn').addEventListener('click', function(e){
+        toggleActive(e.target.parentNode.firstElementChild, e.target.parentNode.lastElementChild, true);
+        addToLocalStorage('isDatesActive', true);
+        setEltClass(document.getElementById('dates-config'), "disabled", false);
+    });
+    document.getElementById('datesOff').addEventListener('click', function(e){
+        toggleActive(e.target.parentNode.lastElementChild, e.target.parentNode.firstElementChild, false);
+        addToLocalStorage('isDatesActive', false);
+        setEltClass(document.getElementById('dates-config'), "disabled", true);
+    });
+
+    //init
+    chrome.storage.local.get('isDatesActive', function(result){
+        if (result['isDatesActive']) {
+            const httpElt =  document.getElementById("datesOn")
+            toggleActive(httpElt, httpElt.parentNode.lastElementChild)
+            setEltClass(document.getElementById('dates-config'), "disabled", false);
+        } else {
+            setEltClass(document.getElementById('dates-config'), "disabled", true);
+        }
+    });
 });
 
 function setEltClass(elt, className, set){
