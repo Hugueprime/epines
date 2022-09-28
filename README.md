@@ -63,4 +63,6 @@ If you add a feature you should include a small description in your PR and in th
 
 # Contributors
 
-Yes.
+@Tim-xd for the amazing copy functionnality on debug pro
+
+@Laurane67 for the name, full of meaning, of this extension
