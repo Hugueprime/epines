@@ -12,6 +12,7 @@
                 "http://www.debug-pro.com/epita/*"
             ],
             "js": [
+                "/global/browser-polyfill.js",
                 "/global/tools.js",
                 "/content/tools.js",
                 "/content/intraAssistants.js",
@@ -30,6 +31,7 @@
     ],
     "background": {
         "scripts": [
+            "/global/browser-polyfill.js",
             "/background/background.js"
         ]
     },
