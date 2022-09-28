@@ -11,6 +11,10 @@ function createCopyButton(elt, s) {
     elt.parentElement.style.position = "relative";
     img.addEventListener("click", () => {
         copyToClipboard(s);
+        elt.style.opacity = "0.5";
+        setTimeout(function() {
+            elt.style.opacity = "1";
+          }, 200);
     });
 }
 
