@@ -13,7 +13,7 @@ function onError(error) {
 
 function blockRequest(result) {
     function blockYt(page) {
-        chrome.storage.local.get("isVideoPlayerActive", function(res){
+        browser.storage.local.get("isVideoPlayerActive", function(res){
             //media player is not enabled
             if (!res.isVideoPlayerActive) {
                 return;
@@ -24,12 +24,12 @@ function blockRequest(result) {
         });
     }
 
-    chrome.webRequest.onBeforeRequest.addListener(page => { return blockYt(page) },
+    browser.webRequest.onBeforeRequest.addListener(page => { return blockYt(page) },
         filter,
         webRequestFlags
     );
 };
 
-chrome.storage.local.get("instanceVideoPlayer", function(result){
+browser.storage.local.get("instanceVideoPlayer", function(result){
     blockRequest(result);
 });

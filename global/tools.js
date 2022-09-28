@@ -1,20 +1,20 @@
 function updateDates(force = false) {
     return new Promise(function(resolve, reject) {
         const today = new Date();
-        chrome.storage.local.get('datesLastCheck', function(dateUp) {
+        browser.storage.local.get('datesLastCheck', function(dateUp) {
             if (force ||
                 Object.keys(dateUp).length == 0 ||
                 createDate(dateUp.datesLastCheck) == "Invalid Date" ||
                 createDate(dateUp.datesLastCheck).getDate() + 7 < today.getDate()
             ) { //sync if last is one week old or doesn't exist
 
-                chrome.storage.local.get('URLDeadline', function(url) {
+                browser.storage.local.get('URLDeadline', function(url) {
                     if (url.URLDeadline) {
                         fetch(url.URLDeadline, {cache: "no-store"}).then(r => r.text()).then(result => {
                             result = JSON.parse(result);
                             if (result) {
                                 addToLocalStorage('datesLastCheck', today.toLocaleDateString("fr-FR", {day: 'numeric', month: 'numeric'}));
-                                chrome.storage.local.get('datesLastVersion', function(version) {
+                                browser.storage.local.get('datesLastVersion', function(version) {
                                     if (!version.datesLastVersion || result.version > version.datesLastVersion) {
                                         addToLocalStorage('datesLastVersion', result.version);
                                         Object.keys(result.dates).forEach((elt) => {
@@ -49,9 +49,9 @@ function createDate(dateStr) { // dd/mm
 }
 
 function addToLocalStorage(nameKey, value) {
-    chrome.storage.local.set({[nameKey]: value}, function() {});
+    browser.storage.local.set({[nameKey]: value}, function() {});
 }
 
 function clearLocalStorage(nameKey) {
-    chrome.storage.local.remove(nameKey);
+    browser.storage.local.remove(nameKey);
 }

@@ -9,20 +9,20 @@ document.getElementById('instanceVideoPlayer').placeholder = `${DEFAULT_VIDEO_PL
 //make link clickable
 for(let k = 0; k < document.getElementsByClassName("link").length; k++){
     document.getElementsByClassName("link")[k].addEventListener('click', function(e) {
-        chrome.tabs.create({active: true, url: e.target.href});
+        browser.tabs.create({active: true, url: e.target.href});
     });
 }
 
 /*
 * Get old state
 */
-chrome.storage.local.get('instanceVideoPlayer', function(result){
+browser.storage.local.get('instanceVideoPlayer', function(result){
     if(result['instanceVideoPlayer']){
         document.getElementById('instanceVideoPlayer').value = result['instanceVideoPlayer'];
     }
 });
 
-chrome.storage.local.get('URLDeadline', function(result){
+browser.storage.local.get('URLDeadline', function(result){
     if(result['URLDeadline']){
         document.getElementById('URLDeadline').value = result['URLDeadline'];
     }
@@ -30,13 +30,13 @@ chrome.storage.local.get('URLDeadline', function(result){
 
 //dates
 function updateDatesValues() {
-    chrome.storage.local.get('datesLastCheck', function(result){
+    browser.storage.local.get('datesLastCheck', function(result){
         if(result['datesLastCheck']){
             document.getElementById('datesLastCheck').innerText = `Last check: ${result['datesLastCheck']}`;
         }
     });
     
-    chrome.storage.local.get('datesLastVersion', function(result){
+    browser.storage.local.get('datesLastVersion', function(result){
         if(result['datesLastVersion']){
             document.getElementById('datesLastVersion').innerText = 'v'+result['datesLastVersion'];
         }
