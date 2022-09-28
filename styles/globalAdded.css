@@ -1,7 +1,6 @@
 #epines-copyButton {
     height: 20px;
-    /*width: fit-content;*/
-    width; 20px !important;
+    width: 20px !important;
     margin: 0 8px;
     filter: invert(91%) sepia(10%) saturate(357%) hue-rotate(196deg) brightness(98%) contrast(92%);
     position: absolute;
