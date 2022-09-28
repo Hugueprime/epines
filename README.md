@@ -15,8 +15,8 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 # Installation
 
 ## From official store
-  * [Firefox (not here yet)]()
-  * [Chrome (not here yet)]()
+  * [Firefox](https://addons.mozilla.org/fr/firefox/addon/epines/)
+  * [Chrome (Currently from source only because of the manifest)]()
 
 ## From source
 
@@ -58,7 +58,7 @@ There is a small thing you would like to see improved on a site you use with epi
 Don't hesitate to create pull request to improve/create some functionnalities, design, or even correct some typo.
 
 ## How to contribute
----
+
 The preferred and easiest way to contribute changes to the project is to fork it on github, and then create a pull request to ask us to pull your changes into our repo (https://help.github.com/articles/using-pull-requests/).
 
     
