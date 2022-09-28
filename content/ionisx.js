@@ -19,14 +19,14 @@ function mainIonisx() {
     if (isModuleListUrl()) {
         reduceHeader();
         giveAccessToBlockedModules();
-        browser.storage.local.get("isDatesActive", function(res) {
+        browser.storage.local.get("isDatesActive").then(res => {
             if (res.isDatesActive) {
                 showDates();
             }
         });
     } else if (isInModuleUrl) {
         showSummaryOnHover();
-        browser.storage.local.get("isVideoPlayerActive", function(res) {
+        browser.storage.local.get("isVideoPlayerActive").then(res => {
             if (res.isVideoPlayerActive) {
                 changeInstanceMediaPlayer();
             }
@@ -158,7 +158,7 @@ function changeInstanceMediaPlayer() {
         }, 250)
     }
 
-    browser.storage.local.get("instanceVideoPlayer", function(result) {
+    browser.storage.local.get("instanceVideoPlayer").then(result => {
         const instance = result.instanceVideoPlayer ?? DEFAULT_INSTANCE;
         waitForIFrame(0, instance);
     });
@@ -169,7 +169,7 @@ function showDates() {
 	    const options = { month: 'short', day: 'numeric'};
         const coursesList = window.location.href.match(/https:\/\/ionisx\.com\/courses\/[a-z0-9]{24}\/([a-z0-9\-]*)/)[1].replaceAll('-', '_');
 
-        browser.storage.local.get([coursesList], function(dates) {
+        browser.storage.local.get([coursesList]).then(dates => {
             if (Object.keys(dates).length == 0) {
                 return;
             }

@@ -13,7 +13,7 @@ function onError(error) {
 
 function blockRequest(result) {
     function blockYt(page) {
-        browser.storage.local.get("isVideoPlayerActive", function(res){
+        browser.storage.local.get("isVideoPlayerActive").then(res => {
             //media player is not enabled
             if (!res.isVideoPlayerActive) {
                 return;
@@ -30,6 +30,6 @@ function blockRequest(result) {
     );
 };
 
-browser.storage.local.get("instanceVideoPlayer", function(result){
+browser.storage.local.get("instanceVideoPlayer").then(result => {
     blockRequest(result);
 });

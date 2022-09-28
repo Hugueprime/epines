@@ -1,3 +1,4 @@
+console.log("nrehie");
 const url = window.location.href;
 if (isIntraAssistantUrl()) {
     mainIntraAssistant();
