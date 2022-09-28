@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //init
-    browser.storage.local.get('isVideoPlayerActive', function(result){
+    browser.storage.local.get('isVideoPlayerActive').then(result => {
         if (result['isVideoPlayerActive']) {
             const httpElt =  document.getElementById("videoPlayerOn")
             toggleActive(httpElt, httpElt.parentNode.lastElementChild)
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //init
-    browser.storage.local.get('isDatesActive', function(result){
+    browser.storage.local.get('isDatesActive').then(result => {
         if (result['isDatesActive']) {
             const httpElt =  document.getElementById("datesOn")
             toggleActive(httpElt, httpElt.parentNode.lastElementChild)

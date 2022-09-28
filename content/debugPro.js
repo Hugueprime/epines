@@ -1,11 +1,14 @@
 function isDebugProUrl() {
-    return url.substring(0, 24) == "http://www.debug-pro.com";
+    return url.substring(0, 24) == "http://www.debug-pro.com" ||
+           url.substring(0, 20) == "http://debug-pro.com";
 }
 
 function mainDebugPro() {
+    console.log("okkk");
     // Set copy button
     pre = document.getElementsByTagName('pre');
     for (let i = 0; i < pre.length; i++) {
+        console.log(pre);
         str = pre[i].children[0].textContent;
         if (str[0] == '$') { // Tests
             createCopyButton(pre[i].children[0], parseTest(str));

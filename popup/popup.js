@@ -16,13 +16,13 @@ for(let k = 0; k < document.getElementsByClassName("link").length; k++){
 /*
 * Get old state
 */
-browser.storage.local.get('instanceVideoPlayer', function(result){
+browser.storage.local.get('instanceVideoPlayer').then(result => {
     if(result['instanceVideoPlayer']){
         document.getElementById('instanceVideoPlayer').value = result['instanceVideoPlayer'];
     }
 });
 
-browser.storage.local.get('URLDeadline', function(result){
+browser.storage.local.get('URLDeadline').then(result => {
     if(result['URLDeadline']){
         document.getElementById('URLDeadline').value = result['URLDeadline'];
     }
@@ -30,13 +30,13 @@ browser.storage.local.get('URLDeadline', function(result){
 
 //dates
 function updateDatesValues() {
-    browser.storage.local.get('datesLastCheck', function(result){
+    browser.storage.local.get('datesLastCheck').then(result => {
         if(result['datesLastCheck']){
             document.getElementById('datesLastCheck').innerText = `Last check: ${result['datesLastCheck']}`;
         }
     });
     
-    browser.storage.local.get('datesLastVersion', function(result){
+    browser.storage.local.get('datesLastVersion').then(result => {
         if(result['datesLastVersion']){
             document.getElementById('datesLastVersion').innerText = 'v'+result['datesLastVersion'];
         }
@@ -54,7 +54,7 @@ document.getElementById('instanceVideoPlayer').addEventListener('change', functi
 
 document.getElementById('URLDeadline').addEventListener('change', function(e) {
     if(e.target.value == '') clearLocalStorage('URLDeadline');
-    else if(e.target.value.match('https?://([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}')) {
+    else if(e.target.value.match('https?:\/\/([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}')) {
         addToLocalStorage('URLDeadline', e.target.value);
     }
 });
