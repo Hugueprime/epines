@@ -9,7 +9,7 @@
                 "https://intra.assistants.epita.fr/*",
                 "https://ionisx.com/*",
                 "https://courses.ionisx.com/*",
-                "http://www.debug-pro.com/epita/*",
+                "http://www.debug-pro.com/*",
                 "http://debug-pro.com/*"
             ],
             "js": [

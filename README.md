@@ -8,6 +8,7 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 * ### [Functionnalities](#functionnalities-1)
     * [intra.assistants.epita.fr](#intra.assistants.epita.fr)
     * [ionisx.com](#ionisx.com)
+    * [debug-pro.com](#debug-pro.com)
 * ### [How to contribute](#how-to-contribute-1)
 * ### [Contributors](#contributors-1)
 
@@ -29,22 +30,26 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 
 # Functionnalities 
 
-## intra.assistants.epita.fr
+## [intra.assistants.epita.fr](https://intra.assistants.epita.fr) <span id="intra.assistants.epita.fr">
 
 1. Move assignement on top of assistants' picture (avoiding scroll)
-2. Create copy button for the git url 
+2. Create a copy button for the git url 
 
-## ionisx.com
+## [ionisx.com](https://ionisx.com) <span id="ionisx.com">
 
 1. Make the header more compact on the modules list
 2. Make the course progress container fixed on the side
-3. Make module description more compact
+3. Make module description more compact 
 
-(the removal of teses epines allows the user to see more than 3 modules at the same time)
+(the removal of theses epines (^) allows the user to see more than 3 modules at the same time)
 
 4. Allow the user to access blocked modules (because the previous one isn't finished which could be the case because it is not in our program...)
 5. Create a summary when hovering the button summary in a module because there is not point of a summary in a different page
 6. Add deadline for each module because having the information concerning a website on the concerned website is more efficient
+
+## [debug-pro.com](http://debug-pro.com) <span id="debug-pro.com">
+
+1. Create a copy button which parse the test commands and the given file
 
 # Contributing to Epines
 
