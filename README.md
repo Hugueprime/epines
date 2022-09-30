@@ -17,7 +17,7 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 
 ## From official store
   * [Firefox](https://addons.mozilla.org/fr/firefox/addon/epines/)
-  * [Chrome (Currently from source only because of the manifest)]()
+  * Chrome (Currently from source only because of the manifest)
 
 ## From source
 
