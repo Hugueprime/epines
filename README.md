@@ -9,6 +9,7 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
     * [intra.assistants.epita.fr](#intra.assistants.epita.fr)
     * [ionisx.com](#ionisx.com)
     * [debug-pro.com](#debug-pro.com)
+* ### [Documentation](#documentation-1)
 * ### [How to contribute](#how-to-contribute-1)
 * ### [Contributors](#contributors-1)
 
@@ -21,9 +22,10 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 ## From source
 
 ### Chrome based browsers:
-1. Download this repo
-2. Go to `chrome://extensions` and enable "developer mode"
-3. Load unpacked extension and select the directory where you downloaded the repo
+1. Download the [latest release](https://github.com/Hugueprime/epines/releases)
+2. Unzip the downloaded file
+3. Go to `chrome://extensions` in chrome and active the developpeur mode (top right)
+4. Click "Load unpacked extension" and select the previously unziped folder
 
 ### Firefox based browsers:
 1. You will need to seach for yourself on that one.
@@ -50,6 +52,31 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 ## [debug-pro.com](http://debug-pro.com) <span id="debug-pro.com">
 
 1. Create a copy button which parse the test commands and the given file
+
+# Documentation
+
+## Video Player
+
+You have the possibility to change the default video player.
+Any [invidious instance](https://api.invidious.io/) and [https://youtube.com] should work.
+
+:warning: It's not impossible the amount of time spend on watching videos isn't comptabilize.
+
+## Dates
+
+To have the deadline dates presented on the module list, you have to insert an url.
+
+This url for the **SPE** is ``https://raw.githubusercontent.com/Hugueprime/epines/master/data/s3.json``.
+
+You can click the "fetch" button to update the dates, the last version loaded should be shown below this button on the right, and the left the last time it was updated (theoretically if you go on ionisx and it has been one week, it should auto update).
+
+---
+If you want to load you own dates, you can create a json file and heberge it somewhere.
+
+The classes keys in the ``dates`` section are matching the url name when being in the page showing the list of module of a certain field.
+
+Each time you modifiy it you have to increment the version number.
+
 
 # Contributing to Epines
 
