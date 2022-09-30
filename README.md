@@ -27,6 +27,8 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 3. Go to `chrome://extensions` in chrome and active the developpeur mode (top right)
 4. Click "Load unpacked extension" and select the previously unziped folder
 
+:warning: the extension will show an error, this is normal as it still uses the manifest v2 for blocking the default media player of ionisx.
+
 ### Firefox based browsers:
 1. You will need to seach for yourself on that one.
 
@@ -71,7 +73,7 @@ This url for the **SPE** is ``https://raw.githubusercontent.com/Hugueprime/epine
 You can click the "fetch" button to update the dates, the last version loaded should be shown below this button on the right, and the left the last time it was updated (theoretically if you go on ionisx and it has been one week, it should auto update).
 
 ---
-If you want to load you own dates, you can create a json file and heberge it somewhere.
+If you want to load your own dates, you can create a json file and heberge it somewhere.
 
 The classes keys in the ``dates`` section are matching the url name when being in the page showing the list of module of a certain field.
 
