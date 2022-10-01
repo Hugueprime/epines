@@ -210,7 +210,7 @@ function showDates() {
     const div = document.createElement('div');
     div.id = "epines-legend";
     div.classList.add("course-progress-block")
-    const name = ['Late', 'To do this week', 'Finished', 'To do next week', 'To do some time in the futur'];
+    const name = ['Late', 'To do this week', 'Finished', 'To do next week', 'To do some time in the future'];
     const classDate = ['epines-PastWeek', 'epines-ActualWeek', 'epines-DoneWeek', 'epines-NextWeek', 'epines-FuturWeek'];
     for (let i = 0; i < name.length; i++) {
         const elt = document.createElement('label');
