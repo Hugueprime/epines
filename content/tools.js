@@ -11,6 +11,7 @@ function createCopyButton(elt, s) {
     elt.parentElement.appendChild(img)
     elt.parentElement.style.position = "relative";
     img.addEventListener("click", () => {
+        if (!s) s = elt.textContent;
         copyToClipboard(s);
         elt.style.opacity = "0.5";
         setTimeout(function() {
