@@ -51,7 +51,7 @@ li.epines:hover{
     background-color: #dadada;
 }
 
-li.epines-dark:hover{
+li.epines-dark > a:hover{
     opacity: 0.5;
     background-color: #1d1f21;
 }
