@@ -2,7 +2,7 @@
     "name": "Epines",
     "description": "L'extension qui vous enlève les épines du pied (et des sites de l'epita)!",
     "version": "1.1",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "content_scripts":[
         {
             "matches":[
@@ -31,18 +31,24 @@
         }
     ],
     "background": {
-        "scripts": [
-            "/global/browser-polyfill.js",
-            "/background/background.js"
-        ]
+        "service_worker": "/background/background.js",
+        "type": "module"
+        
     },
-    "browser_action":{
+    "action":{
         "default_icon": "./icons/icon32.png",
         "default_popup": "/popup/popup.html"
     },
+    "declarative_net_request" : {
+        "rule_resources" : [{
+            "id": "ruleset_1",
+            "enabled": false,
+            "path": "/net_request_rules/rules_1.json"
+        }]
+    },
     "permissions": [
         "webRequest",
-        "webRequestBlocking",
+        "declarativeNetRequest",
         "storage",
         "*://www.youtube.com/*"
     ]
