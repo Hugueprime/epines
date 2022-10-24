@@ -81,7 +81,7 @@ function showSummaryOnHover() {
                     for(const k in list) {
                         let valid = '<span class="fa-uncheck"></span>'
                         if (list[k].valid) valid = '<span class="fa fa-check"></span>';
-                        summaryList += `<li class="${epinesClass}"><a href="${list[k].link}">${list[k].name}</a>${valid}</li>`;
+                        summaryList += `<li class="${epinesClass} liSumIonis"><a href="${list[k].link}">${list[k].name}</a>${valid}</li>`;
                     }
                     summaryList += "</ol>";
                     div.innerHTML = summaryList;

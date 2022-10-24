@@ -17,41 +17,20 @@
     background-color: white;
 }
 
-.epines-dark {
-    background-color: #181a1b;
-}
-
 #epines-hoverSummary:hover{
     display: block;
 }
 
-a.epines{
-    color: #0075b4;
-    text-decoration: none;
-    background-color: transparent;
-}
-
-a.epines-dark{
-    color: #aeaaa4;
-    text-decoration: none;
-    background-color: transparent;
-}
-
-ol.epines{
-    padding: 0 10px;
-}
-
-li.epines, li.epines-dark{
+li.liSumIonis {
     list-style-type: decimal;
-    padding: 3px 0px 3px 3px;
-    margin-left: 19px;
+    margin-left: 30px;
 }
 
-li.epines:hover{
-    background-color: #dadada;
+li.liSumIonis:last-child {
+    padding-bottom: 20px;
 }
 
-li.epines-dark > a:hover{
+li.liSumIonis > a:hover{
     opacity: 0.5;
     background-color: #1d1f21;
 }
