@@ -1,3 +1,13 @@
+body {
+    --background-color: #141e24;
+    --main-color: #316e7d;
+    --second-light: rgb(103, 146, 184);
+    --second-dark: #27333a;
+    --discret: #3e8cb9;
+    --title-color: #53a1b3;
+    --text-color: rgb(207, 207, 207);
+}
+
 #epines-copyButton {
     height: 20px;
     width: 20px !important;
@@ -14,4 +24,42 @@
 
 .epines-buttonTopRight {
     top: 10px;
+}
+
+hr.epines {
+    border-color: var(--title-color);
+}
+
+a.epines, h3.epines, h4.epines{
+    background-color: transparent;
+    text-decoration: none;
+    color:  var(--title-color);
+    padding: 2px;
+}
+
+.epines-dark {
+    background-color: var(--background-color);
+}
+
+a.epines-dark{
+    color: var(--text-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+ol.epines{
+    padding: 0 10px;
+}
+
+li.epines, li.epines-dark{
+    padding: 3px 0px 3px 3px;
+    margin-left: 19px;
+}
+
+a.epines:hover {
+    opacity: 0.8;
+}
+
+li.epines {
+    color: var(--text-color);
 }

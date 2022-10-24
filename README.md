@@ -54,6 +54,7 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 ## [debug-pro.com](http://debug-pro.com) <span id="debug-pro.com">
 
 1. Create a copy button which parse the test commands and the given file
+2. Create a summary when the url is invalid
 
 # Documentation
 
