@@ -21,7 +21,11 @@ function mainIonisx() {
         giveAccessToBlockedModules();
         browser.storage.local.get("isDatesActive").then(res => {
             if (res.isDatesActive) {
-                showDates();
+                updateDates().then(() => {
+                    showDates();
+                }).catch(() => {
+                    showDates();
+                })
             }
         });
     } else if (isInModuleUrl) {
@@ -166,45 +170,44 @@ function changeInstanceMediaPlayer() {
 }
 
 function showDates() {
-    updateDates().then(() => {
-	    const options = { month: 'short', day: 'numeric'};
-        const coursesList = window.location.href.match(/https:\/\/ionisx\.com\/courses\/[a-z0-9]{24}\/([a-z0-9\-]*)/)[1].replaceAll('-', '_');
+    const options = { month: 'short', day: 'numeric'};
+    const coursesList = window.location.href.match(/https:\/\/ionisx\.com\/courses\/[a-z0-9]{24}\/([a-z0-9\-]*)/)[1].replaceAll('-', '_');
 
-        browser.storage.local.get([coursesList]).then(dates => {
-            if (Object.keys(dates).length == 0) {
-                return;
-            }
-            dates = dates[coursesList];
-            dates = JSON.parse(dates);
-            for(const k in dates) {
-                const module = document.getElementsByClassName("module-number")[k].parentElement;
-                const span = document.createElement("span");
-                span.classList.add("epines-dateToDo");
+    browser.storage.local.get([coursesList]).then(dates => {
+        if (Object.keys(dates).length == 0) {
+            return;
+        }
+        dates = dates[coursesList];
+        dates = JSON.parse(dates);
+        for(const k in dates) {
+            const module = document.getElementsByClassName("module-number")[k].parentElement;
+            const span = document.createElement("span");
+            span.classList.add("epines-dateToDo");
 
-                const dateStart = new Date(dates[k].start);
-                const dateEnd = new Date(dates[k].end);
-                span.innerHTML = `${dateStart.toLocaleDateString('fr-FR', options)} to ${dateEnd.toLocaleDateString('fr-FR', options)}`;
+            const dateStart = new Date(dates[k].start);
+            const dateEnd = new Date(dates[k].end);
+            span.innerHTML = `${dateStart.toLocaleDateString('fr-FR', options)} to ${dateEnd.toLocaleDateString('fr-FR', options)}`;
 
-                const today = new Date;
-                if (module.parentElement.parentElement.classList.contains("course-component-module-finished")) { //done
-                    span.classList.add("epines-DoneWeek");
+            const today = new Date;
+            if (module.parentElement.parentElement.classList.contains("course-component-module-finished")) { //done
+                span.classList.add("epines-DoneWeek");
+            } else {
+                if (today.getTime() > dateEnd.getTime()) { //past week
+                    span.classList.add("epines-PastWeek");
+                } else if (dateStart.getTime() < today.getTime() && today.getTime() < dateEnd.getTime()) { //current week
+                    span.classList.add("epines-ActualWeek");
                 } else {
-                    if (today.getTime() > dateEnd.getTime()) { //past week
-                        span.classList.add("epines-PastWeek");
-                    } else if (dateStart.getTime() < today.getTime() && today.getTime() < dateEnd.getTime()) { //current week
-                        span.classList.add("epines-ActualWeek");
-                    } else {
-                        today.setDate(today.getDate() + 6);//next week
-                        if (dateStart.getTime() < today.getTime() && today.getTime() < dateEnd.getTime()) {//next week
-                            span.classList.add("epines-NextWeek");
-                        } else { //futur week
-                            span.classList.add("epines-FuturWeek");
-                        }
+                    today.setDate(today.getDate() + 6);//next week
+                    if (dateStart.getTime() < today.getTime() && today.getTime() < dateEnd.getTime()) {//next week
+                        span.classList.add("epines-NextWeek");
+                    } else { //futur week
+                        span.classList.add("epines-FuturWeek");
                     }
                 }
-                module.appendChild(span);
             }
-        });
+            module.appendChild(span);
+        }
+
     });
 
     //create legend
