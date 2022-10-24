@@ -31,6 +31,7 @@ function mainIonisx() {
                 changeInstanceMediaPlayer();
             }
         });
+        addNumberToAnswers();
     }
 }
 
@@ -221,4 +222,21 @@ function showDates() {
 
     const elt = document.getElementsByClassName("course-timeline-aside")[0].firstChild;
     elt.insertBefore(div, elt.children[2]);
+}
+
+function addNumberToAnswers() {
+    const groups = document.getElementsByClassName("choicegroup");
+    for (let i = 0; i < groups.length; i++) {
+        const answers = groups[i].children[0].getElementsByClassName("field");
+        for (let a = 0; a < answers.length; a++) {
+            const span = document.createElement("span");
+            span.id  = "epines-answerNb";
+            span.textContent = a+ 1;
+            console.log(answers[a])
+            answers[a].children[0].appendChild(span);
+            console.log(answers[a])
+
+        }
+    }
+
 }

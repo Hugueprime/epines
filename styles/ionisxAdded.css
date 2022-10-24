@@ -78,3 +78,7 @@ li.liSumIonis > a:hover{
     flex-direction: column;
     align-items: center;
 }
+
+#epines-answerNb {
+    float: right;
+}

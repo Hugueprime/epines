@@ -50,6 +50,7 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 4. Allow the user to access blocked modules (because the previous one isn't finished which could be the case because it is not in our program...)
 5. Create a summary when hovering the button summary in a module because there is not point of a summary in a different page
 6. Add deadline for each module because having the information concerning a website on the concerned website is more efficient
+7. Add a number to each answer in the module test for a better communication
 
 ## [debug-pro.com](http://debug-pro.com) <span id="debug-pro.com">
 
@@ -99,5 +100,7 @@ If you add a feature you should include a small description in your PR and in th
 # Contributors
 
 @Tim-xd for the amazing copy functionnality on debug pro
+
+@Tim-xd for adding the possibility to change the media player
 
 @Laurane67 for the name, full of meaning, of this extension
