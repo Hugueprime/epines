@@ -6,9 +6,7 @@ function updateDates(force = false) {
                 Object.keys(dateUp).length == 0 ||
                 createDate(dateUp.datesLastCheck) == "Invalid Date" ||
                 createDate(dateUp.datesLastCheck).getDate() + 7 < today.getDate()
-                || true
             ) { //sync if last is one week old or doesn't exist
-
                 browser.storage.local.get('URLDeadline').then(url => {
                     if (url.URLDeadline) {
                         fetch(url.URLDeadline, {cache: "no-store"}).then(r => r.text()).then(result => {
@@ -29,11 +27,12 @@ function updateDates(force = false) {
                             } else {
                                 reject("Fetch failed")
                             }
+                        }).catch(() => {
+                            reject("Failed to request")                
                         });
                     } else {
                         reject("No url provided");
                     }
-                    
                 });
             } else {
                 resolve("No sync need")
