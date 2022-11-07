@@ -1,5 +1,4 @@
 function createCopyButton(elt, s) {
-    console.log("create copy button");
     const img = document.createElement("img");
     img.setAttribute("src", "https://www.svgrepo.com/show/86790/copy.svg");
     img.id = "epines-copyButton";

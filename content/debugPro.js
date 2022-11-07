@@ -7,7 +7,7 @@ function mainDebugPro() {
 
     setDebugProCopyButton();
 
-    addTree();
+    addDebugProSummary();
     
 }
 
@@ -15,7 +15,6 @@ function setDebugProCopyButton() {
     // Set copy button
     pre = document.getElementsByTagName('pre');
     for (let i = 0; i < pre.length; i++) {
-        console.log(pre);
         str = pre[i].children[0].textContent;
         if (str[0] == '$') { // Tests
             createCopyButton(pre[i].children[0], parseTest(str));
@@ -28,20 +27,82 @@ function setDebugProCopyButton() {
 
 function parseTest(s) {
     s = s.split('\n');
+    console.log(s[0])
+    if (s[0] == "$ tree") {
+        return parseTree(s)
+    }
     result = ""
     for (let i = 0; i < s.length; i++) {
         if (s[i][0] == '$' && s[i][1] == ' ') {
             result += "echo \"" + s[i] + "\" && " + s[i].substring(2) + " && ";
         }
     }
-
     return result.substring(0, result.length - 3);
 }
 
-function addTree()
+function getIndexFirstChar(s) {
+    for (let j = 0; j < s.length; j++) {
+        if (s[j].match(/[-_.A-Za-z0-9]/g)) return j;
+    }
+    return s.length;
+}
+
+function createFilePath(path, name) {
+    if (path.length > 0) {
+        return path.join("/") + "/" + name;
+    }
+    return name;
+}
+
+function parseTree(s) {
+    let folders = []
+    let files = []
+    let previousIndexFirstChar = getIndexFirstChar(s[1]);
+    let indexFirstChar = 1;
+    let path = [];
+    let name;
+    for (let i = 2; i < s.length; i++) {
+        indexFirstChar = getIndexFirstChar(s[i]);
+        if (indexFirstChar < previousIndexFirstChar) {
+            path.pop();
+        }
+        previousIndexFirstChar = indexFirstChar;
+
+        name = s[i].substring(indexFirstChar, s[i].length);
+
+        // ignore the authors file preventing the user to forgot to edit it
+        if (name == "AUTHORS") continue;
+
+        if (i + 1 < s.length) {
+            // if the next line is longer this is a folders
+            if (getIndexFirstChar(s[i+1]) > indexFirstChar) {
+                folders.push(createFilePath(path, name))
+                path.push(name)
+            } else {
+                files.push(createFilePath(path, name))
+            }
+        } else { // is last line
+            // has extension
+            if (s[i].includes(".")) {
+                files.push(createFilePath(path, name))
+            } else {
+                folders.push(createFilePath(path, name));
+                path.push(name)
+            }
+        }
+    }
+
+    return "mkdir " + folders.join(" ") + " && " +
+            "touch " + files.join(" ") + " && " +
+            "tree" + " && " + 'echo -e "\\033[0;31mWarning: the AUTHORS file has not been created ! \\033[0m"';
+}
+
+function addDebugProSummary()
 {
+    // check if summary is needed (403 or 404 or "site in construction message")
     if ((document.getElementsByTagName("h1").length > 0 &&
-    document.getElementsByTagName("h1")[0].textContent.includes("Error 404")) ||
+    (document.getElementsByTagName("h1")[0].textContent.includes("Error 404") ||
+    document.getElementsByTagName("h1")[0].textContent.includes("Error 403"))) ||
     (document.getElementsByTagName("body").length > 0 &&
     document.getElementsByTagName("body")[0].children.length == 1 &&
     document.getElementsByTagName("body")[0].children[0].tagName == "TABLE"))
