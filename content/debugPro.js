@@ -27,7 +27,6 @@ function setDebugProCopyButton() {
 
 function parseTest(s) {
     s = s.split('\n');
-    console.log(s[0])
     if (s[0] == "$ tree") {
         return parseTree(s)
     }
