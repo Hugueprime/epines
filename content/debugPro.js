@@ -54,7 +54,7 @@ function loadDebugPropCopyButton(login) {
                 createCopyButton(pre[i].children[0], parseTest(str, login));
             }
         } else { // Gived file
-            if (str.substring(0, 10) == "First Name") {
+            if (login && str.substring(0, 10) == "First Name") {
                 str = parseAuthor(str, login);
                 pre[i].children[0].textContent = str;
                 createCopyButton(pre[i].children[0], str);
