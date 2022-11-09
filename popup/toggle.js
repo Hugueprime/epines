@@ -47,6 +47,29 @@ document.addEventListener('DOMContentLoaded', function() {
             setEltClass(document.getElementById('dates-config'), "disabled", true);
         }
     });
+
+    //login toggle
+    document.getElementById('loginOn').addEventListener('click', function(e){
+        toggleActive(e.target.parentNode.firstElementChild, e.target.parentNode.lastElementChild, true);
+        addToLocalStorage('isloginActive', true);
+        setEltClass(document.getElementById('login-config'), "disabled", false);
+    });
+    document.getElementById('loginOff').addEventListener('click', function(e){
+        toggleActive(e.target.parentNode.lastElementChild, e.target.parentNode.firstElementChild, false);
+        addToLocalStorage('isloginActive', false);
+        setEltClass(document.getElementById('login-config'), "disabled", true);
+    });
+
+    //init
+    browser.storage.local.get('isloginActive').then(result => {
+        if (result['isloginActive']) {
+            const httpElt =  document.getElementById("loginOn")
+            toggleActive(httpElt, httpElt.parentNode.lastElementChild)
+            setEltClass(document.getElementById('login-config'), "disabled", false);
+        } else {
+            setEltClass(document.getElementById('login-config'), "disabled", true);
+        }
+    });
 });
 
 function setEltClass(elt, className, set){

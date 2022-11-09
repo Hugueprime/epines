@@ -28,6 +28,12 @@ browser.storage.local.get('URLDeadline').then(result => {
     }
 });
 
+browser.storage.local.get('login').then(result => {
+    if(result['login']){
+        document.getElementById('login').value = result['login'];
+    }
+});
+
 //dates
 function updateDatesValues() {
     browser.storage.local.get('datesLastCheck').then(result => {
@@ -56,6 +62,13 @@ document.getElementById('URLDeadline').addEventListener('change', function(e) {
     if(e.target.value == '') clearLocalStorage('URLDeadline');
     else if(e.target.value.match('https?:\/\/([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}')) {
         addToLocalStorage('URLDeadline', e.target.value);
+    }
+});
+
+document.getElementById('login').addEventListener('change', function(e) {
+    if(e.target.value == '') clearLocalStorage('login');
+    else if(e.target.value.match('[a-z]+\.[a-z]+')) {
+        addToLocalStorage('login', e.target.value);
     }
 });
 

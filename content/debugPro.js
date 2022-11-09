@@ -12,24 +12,66 @@ function mainDebugPro() {
 }
 
 function setDebugProCopyButton() {
+
+    let login;
+    browser.storage.local.get("isloginActive").then(res => {
+        if (res.isloginActive) {
+            browser.storage.local.get("login").then(result => {
+                if (result.login) {
+                    login = result.login;
+                    loadDebugPropCopyButton(login);
+                } else {
+                    loadDebugPropCopyButton(login);
+                }
+            });
+        } else {
+            loadDebugPropCopyButton(login);
+        }
+    });
+}
+
+function loadDebugPropCopyButton(login) {
     // Set copy button
     pre = document.getElementsByTagName('pre');
     for (let i = 0; i < pre.length; i++) {
         str = pre[i].children[0].textContent;
-        if (str[0] == '$') { // Tests
-            createCopyButton(pre[i].children[0], parseTest(str));
-        }
-        else { // Gived file
-            createCopyButton(pre[i].children[0], str);
+        if (str[0] == '$') { // Commands
+            if (login) { // login active and exist
+                if (str.substring(0, 11) == "$ git clone") {
+                    str = parseGit(str.substring(2), login);
+                    pre[i].children[0].textContent = str;
+                    createCopyButton(pre[i].children[0], str);
+                } else if (str.substring(0, 13) == "$ cat AUTHORS") {
+                        str = parseAuthor(str.substring(13, str.length - 48 ), login);
+                        str = str.replaceAll("\n", "\\n");
+                        str = str.substring(2, str.length - 2); // remove first and last \n
+                        str = "echo '" + str + "' > AUTHORS && " + "cat AUTHORS"
+                        createCopyButton(pre[i].children[0], str);
+                } else {
+                    createCopyButton(pre[i].children[0], parseTest(str, login));
+                }
+            } else {
+                createCopyButton(pre[i].children[0], parseTest(str, login));
+            }
+        } else { // Gived file
+            if (str.substring(0, 10) == "First Name") {
+                str = parseAuthor(str, login);
+                pre[i].children[0].textContent = str;
+                createCopyButton(pre[i].children[0], str);
+            } else {
+                createCopyButton(pre[i].children[0], str);
+            }
         }
     }
 }
 
-function parseTest(s) {
+function parseTest(s, login) {
     s = s.split('\n');
+
     if (s[0] == "$ tree") {
         return parseTree(s)
     }
+
     result = ""
     for (let i = 0; i < s.length; i++) {
         if (s[i][0] == '$' && s[i][1] == ' ') {
@@ -44,6 +86,33 @@ function getIndexFirstChar(s) {
         if (s[j].match(/[-_.A-Za-z0-9]/g)) return j;
     }
     return s.length;
+}
+
+function parseAuthor(s, login) {
+    let name = login.split(".");
+    name[0] = capitalizeFLetter(name[0]);
+    name[1] = capitalizeFLetter(name[1]);
+    
+    s = s.replaceAll("First Name", name[0]);
+    s = s.replaceAll("John", name[0]);
+    
+    s = s.replaceAll("Family Name", name[1]);
+    s = s.replaceAll("Smith", name[1]);
+
+    s = s.replaceAll("Login", login);
+    s = s.replaceAll("john.smith", login);
+
+    s = s.replaceAll("Email Address", login+"@epita.fr");
+    s = s.replaceAll("john.smith@epita.fr", login+"@epita.fr");
+
+    return s;
+}
+
+function parseGit(s, login) {
+    s = s.replaceAll("john.smith", login);
+    s = s.replaceAll("LOGIN", login);
+    s = s.replaceAll("login", login);
+    return s;
 }
 
 function createFilePath(path, name) {

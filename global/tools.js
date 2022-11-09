@@ -55,3 +55,7 @@ function addToLocalStorage(nameKey, value) {
 function clearLocalStorage(nameKey) {
     browser.storage.local.remove(nameKey);
 }
+
+function capitalizeFLetter(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
