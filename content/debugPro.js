@@ -75,7 +75,7 @@ function parseTest(s, login) {
     result = ""
     for (let i = 0; i < s.length; i++) {
         if (s[i][0] == '$' && s[i][1] == ' ') {
-            result += "echo \"" + s[i] + "\" && " + s[i].substring(2) + " && ";
+            result += "echo \"" + s[i].replaceAll("'", "\\'").replaceAll('"', '\\"') + "\" && " + s[i].substring(2) + " && ";
         }
     }
     return result.substring(0, result.length - 3);
@@ -92,7 +92,7 @@ function parseAuthor(s, login) {
     let name = login.split(".");
     name[0] = capitalizeFLetter(name[0]);
     name[1] = capitalizeFLetter(name[1]);
-    
+
     s = s.replaceAll("First Name", name[0]);
     s = s.replaceAll("John", name[0]);
     
