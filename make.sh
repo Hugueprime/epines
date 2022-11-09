@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 if [ $1 = 'zip' ]; then
     zip -r epines.zip background content global icons popup styles manifest.json
