@@ -1,7 +1,7 @@
 {
     "name": "Epines",
     "description": "L'extension qui vous enlève les épines du pied (et des sites de l'epita)!",
-    "version": "1.5",
+    "version": "1.6",
     "manifest_version": 2,
     "content_scripts":[
         {
