@@ -75,7 +75,7 @@ function parseTest(s, login) {
     result = ""
     for (let i = 0; i < s.length; i++) {
         if (s[i][0] == '$' && s[i][1] == ' ') {
-            result += "echo \"" + s[i].replaceAll("'", "\\'").replaceAll('"', '\\"') + "\" && " + s[i].substring(2) + " && ";
+            result += "echo \'" + s[i].replaceAll("'", "\\'") + "\' && " + s[i].substring(2) + " && ";
         }
     }
     return result.substring(0, result.length - 3);
@@ -159,10 +159,22 @@ function parseTree(s) {
             }
         }
     }
+    result = ""
+    operandNeeded = false;
+    if (folders.length != 0) {
+        result += "mkdir " + folders.join(" ");
+        operandNeeded = true;
+    }
+    if (files.length != 0) {
+        if (operandNeeded) result += " && ";
+        result += "touch " + files.join(" ");
+        operandNeeded = true;
+    }
 
-    return "mkdir " + folders.join(" ") + " && " +
-            "touch " + files.join(" ") + " && " +
-            "tree" + " && " + 'echo -e "\\033[0;31mWarning: the AUTHORS file has not been created ! \\033[0m"';
+    if (operandNeeded) result += " && ";
+    result += "tree" + " && " + 'echo -e "\\033[0;31mWarning: the AUTHORS file has not been created ! \\033[0m"';
+    return result;
+            
 }
 
 function addDebugProSummary()
