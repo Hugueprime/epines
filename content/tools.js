@@ -48,3 +48,10 @@ const isDarkReaderEnabled = () => "querySelector" in document &&
     !!document.querySelector("meta[name=darkreader]");
 
 const removeElements = (elms) => elms.forEach(el => el.remove());
+
+function makeLinkClickable(txt) {
+    txt = txt.replaceAll(/http[s]?:\/\/(www\.)?(.*)?\/?(.)*/g, (match, key) => {
+        return `<a target="_blank" href="${match}">${match}</a>`;
+      });
+    return txt;
+}

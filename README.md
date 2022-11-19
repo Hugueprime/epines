@@ -9,6 +9,7 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
     * [intra.assistants.epita.fr](#intra.assistants.epita.fr)
     * [ionisx.com](#ionisx.com)
     * [debug-pro.com](#debug-pro.com)
+    * [moodle.cri.epita.com](#moodle.cri.epita.com)
 * ### [Documentation](#documentation-1)
 * ### [How to contribute](#how-to-contribute-1)
 * ### [Contributors](#contributors-1)
@@ -58,6 +59,10 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 2. Create a copy button which creates the commands to build the architecture
 3. Create a copy button which creates the commands to build the AUTHORS file
 4. Create a summary when the url is invalid
+
+## [moodle.cri.epita.fr](moodle.cri.epita.fr) <span id="moodle.cri.epita.fr">
+
+1. Make links clickable in feedbacks (why links aren't clickable by default ? just why ?)
 
 # Documentation
 
