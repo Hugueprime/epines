@@ -45,7 +45,7 @@ function loadDebugPropCopyButton(login) {
                         str = parseAuthor(str.substring(13, str.length - 48 ), login);
                         str = str.replaceAll("\n", "\\n");
                         str = str.substring(2, str.length - 2); // remove first and last \n
-                        str = "echo '" + str + "' > AUTHORS && " + "cat AUTHORS"
+                        str = "echo -e '" + str + "' > AUTHORS && " + "cat AUTHORS"
                         createCopyButton(pre[i].children[0], str);
                 } else {
                     createCopyButton(pre[i].children[0], parseTest(str, login));
