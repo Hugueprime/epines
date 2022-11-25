@@ -1,0 +1,16 @@
+.epines-line {
+    position: relative;
+    margin-top: 10px;
+    border-bottom: 1px solid black;
+}
+
+.epines-line-txt {
+    display: inline-block;
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+    bottom: -10px;
+    cursor: pointer;
+    background-color: white;
+    padding: 0 10px;
+}

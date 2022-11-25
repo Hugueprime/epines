@@ -24,6 +24,8 @@
                 "/content/mainContent.js"
             ],
             "css":[
+                "/styles/global.css",
+                "/styles/moodleAdded.css",
                 "/styles/globalAdded.css",
                 "/styles/ionisxAdded.css",
                 "/styles/debugPro.css",
