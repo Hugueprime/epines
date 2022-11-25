@@ -63,6 +63,7 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 ## [moodle.cri.epita.fr](moodle.cri.epita.fr) <span id="moodle.cri.epita.fr">
 
 1. Make links clickable in feedbacks (why links aren't clickable by default ? just why ?)
+2. Create sub categories in courses to have the ability to see where we are on the page
 
 # Documentation
 
