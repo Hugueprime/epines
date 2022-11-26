@@ -1,7 +1,7 @@
 .epines-line {
     position: relative;
     margin-top: 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--main-color);
 }
 
 .epines-line-txt {
@@ -13,4 +13,16 @@
     cursor: pointer;
     background-color: white;
     padding: 0 10px;
+}
+
+.epines-line-txt-dark {
+    display: inline-block;
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+    bottom: -10px;
+    cursor: pointer;
+    background: var(--background-color);
+    padding: 0 10px;
+    color: var(--text-color);
 }

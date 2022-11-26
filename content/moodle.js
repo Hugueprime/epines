@@ -17,11 +17,16 @@ function mainMoodle() {
 function makeContentAfterLinkOptional() {
     let descriptions = document.getElementsByClassName("contentafterlink");
     for (let i = 0; i < descriptions.length; i++) {
+        // ignore element too small (including label "trace available")
+        if(descriptions[i].clientHeight < 60) {
+            continue;
+        }
+
         descriptions[i].classList.toggle("epines-hide");
         const div = document.createElement("div");
         div.classList.add("epines-line");
         const divTxt = document.createElement("div");
-        divTxt.classList.add("epines-line-txt");
+        divTxt.classList.add(isDarkReaderEnabled() ? "epines-line-txt-dark" : "epines-line-txt");
         divTxt.textContent = "More informations";
         div.appendChild(divTxt);
         descriptions[i].parentElement.insertBefore(div, descriptions[i]);
