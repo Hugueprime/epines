@@ -8,4 +8,6 @@ if (isIntraAssistantUrl()) {
     mainDebugPro();
 } else if (isMoodleUrl()) {
     mainMoodle();
+} else if (isEpidocsUrl()) {
+    mainEpidocs();
 }
