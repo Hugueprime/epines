@@ -68,6 +68,7 @@ function openPdfInBrower() {
             {
                 let index = link.indexOf("?forcedownload=1"); 
                 elt[i].href = link.slice(0,index);
+                elt[i].target = "_blank";
             }
         }
     }
