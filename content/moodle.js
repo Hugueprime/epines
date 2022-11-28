@@ -4,14 +4,16 @@ function isMoodleUrl() {
 }
 
 function mainMoodle() {
-    
-    if (url.substring(0, 39) == "https://moodle.cri.epita.fr/mod/assign/") {
+    if (url.substring(0, 39) == "https://moodle.cri.epita.fr/mod/assign/")
         makeLinkClickableFeedback();
-    }
     
-    if (url.substring(0, 34) == "https://moodle.cri.epita.fr/course") {
+    if (url.substring(0, 34) == "https://moodle.cri.epita.fr/course")
         makeContentAfterLinkOptional();
-    }
+
+    if (["https://moodle.cri.epita.fr/mod/folder/",
+        "https://moodle.cri.epita.fr/course"]
+        .some(accepted => url.includes(accepted)))
+        openPdfInBrower();
 }
 
 function makeContentAfterLinkOptional() {
@@ -51,5 +53,22 @@ function makeLinkClickableFeedback() {
     if (elt) {
         console.log(makeLinkClickable(elt.textContent));
         elt.innerHTML = makeLinkClickable(elt.textContent);
+    }
+}
+
+function openPdfInBrower() {
+    let elt = document.getElementsByTagName("a"); 
+    for(var i = 0; i< elt.length; i++) {
+        let link = elt[i].href;
+        if (["https://moodle.cri.epita.fr/mod/resource",
+            "https://moodle.cri.epita.fr/pluginfile.php"]
+            .some(accepted => link.includes(accepted)))
+        {
+            if (link.includes("?forcedownload=1"))
+            {
+                let index = link.indexOf("?forcedownload=1"); 
+                elt[i].href = link.slice(0,index);
+            }
+        }
     }
 }
