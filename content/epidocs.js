@@ -25,9 +25,13 @@ function addCorrectionLinkToStorage() {
                 value.push(link);
         }
 
+        function reloadPage() {
+            location.reload();
+        };
+
         let l = link.split("."); 
         if (l[l.length - 1] == "pdf")
-            elt[i].target = "_blank";
+            elt[i].addEventListener('click', reloadPage);
     }
     
     
@@ -69,4 +73,9 @@ function getLocalStorage() {
         value = [];
 
     return value;
+}
+
+function reloadPage() {
+    console.log("reload");
+    location.reload();
 }
