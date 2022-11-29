@@ -10,9 +10,8 @@ function mainMoodle() {
     if (url.substring(0, 34) == "https://moodle.cri.epita.fr/course")
         makeContentAfterLinkOptional();
 
-    if (["https://moodle.cri.epita.fr/mod/folder/",
-        "https://moodle.cri.epita.fr/course"]
-        .some(accepted => url.includes(accepted)))
+    const correctUrl = acceptedUrl(["https://moodle.cri.epita.fr/mod/folder/","https://moodle.cri.epita.fr/course"], url);
+    if (correctUrl)
         openPdfInBrower();
 }
 
@@ -60,9 +59,9 @@ function openPdfInBrower() {
     let elt = document.getElementsByTagName("a"); 
     for(var i = 0; i< elt.length; i++) {
         let link = elt[i].href;
-        if (["https://moodle.cri.epita.fr/mod/resource",
-            "https://moodle.cri.epita.fr/pluginfile.php"]
-            .some(accepted => link.includes(accepted)))
+        const correctUrl = acceptedUrl(["https://moodle.cri.epita.fr/mod/resource", "https://moodle.cri.epita.fr/pluginfile.php"], elt[i].href);
+        
+        if (correctUrl)
         {
             if (link.includes("?forcedownload=1"))
             {
@@ -75,4 +74,8 @@ function openPdfInBrower() {
             }
         }
     }
+}
+
+function acceptedUrl(urlAccepted, url) {
+    return urlAccepted.some(accepted => url.includes(accepted));
 }

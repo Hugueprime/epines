@@ -112,3 +112,5 @@ If you add a feature you should include a small description in your PR and in th
 @Tim-xd for adding the possibility to change the media player
 
 @Laurane67 for the name, full of meaning, of this extension
+
+@Mzzay for making moodle stop to auto download files
