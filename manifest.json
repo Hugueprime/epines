@@ -11,7 +11,8 @@
                 "https://courses.ionisx.com/*",
                 "http://www.debug-pro.com/*",
                 "http://debug-pro.com/*",
-                "https://moodle.cri.epita.fr/*"
+                "https://moodle.cri.epita.fr/*",
+                "https://past-exams.epidocs.eu/*"
             ],
             "js": [
                 "/global/browser-polyfill.js",
@@ -21,6 +22,7 @@
                 "/content/debugPro.js",
                 "/content/moodle.js",
                 "/content/ionisx.js",
+                "/content/epidocs.js",
                 "/content/mainContent.js"
             ],
             "css":[
