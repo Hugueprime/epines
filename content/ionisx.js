@@ -235,10 +235,7 @@ function addNumberToAnswers() {
             const span = document.createElement("span");
             span.id  = "epines-answerNb";
             span.textContent = a+ 1;
-            console.log(answers[a])
             answers[a].children[0].appendChild(span);
-            console.log(answers[a])
-
         }
     }
 

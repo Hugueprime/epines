@@ -1,5 +1,4 @@
 function isMoodleUrl() {
-    console.log(url);
     return url.substring(0, 27) == "https://moodle.cri.epita.fr";
 }
 
@@ -50,7 +49,6 @@ function moodleSeeMore(e, target) {
 function makeLinkClickableFeedback() {
     let elt = document.getElementsByClassName("feedback")[0]?.getElementsByClassName("plugincontentsummary")[0];
     if (elt) {
-        console.log(makeLinkClickable(elt.textContent));
         elt.innerHTML = makeLinkClickable(elt.textContent);
     }
 }

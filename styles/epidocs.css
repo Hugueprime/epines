@@ -1,0 +1,34 @@
+#epines-mcq-answers {
+    position: fixed;
+    background-color: var(--background-color);
+    right: 0px;
+    top: 40px;
+    padding: 0 20px;
+}
+
+.epines-list-result-mcq {
+    padding-left: 25px;
+}
+
+#epines-courses-mcq {
+    padding-left: 30px;
+}
+
+.epines-course-mcq {
+    color: var(--title-color);
+}
+
+.epines-answer-mcq {
+    width: 50px;
+    background-color: #19242b;
+}
+
+.epines-spoiler {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.epines-spoiler:hover {
+    opacity: 1;
+}

@@ -27,6 +27,7 @@
             ],
             "css":[
                 "/styles/global.css",
+                "/styles/epidocs.css",
                 "/styles/moodleAdded.css",
                 "/styles/globalAdded.css",
                 "/styles/ionisxAdded.css",

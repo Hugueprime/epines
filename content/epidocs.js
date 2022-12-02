@@ -5,77 +5,94 @@ function isEpidocsUrl() {
 const CORRECTION_TAG = "@correction_epidocs";
 
 function mainEpidocs() {
-    addCorrectionLinkToStorage(); 
 
     if (url.includes(".pdf"))
-        addButtonToPdfViewer();
+    {
+        addAnswerSheet();
+    }
+
 }
 
-function addCorrectionLinkToStorage() {
-    let value = JSON.parse(localStorage.getItem(CORRECTION_TAG));
-    if (value == null)
-        value = [];
+function addAnswerSheet() {
     
-    let elt = document.getElementsByTagName("a"); 
-    for(var i = 0; i < elt.length; i++) {
-        let link = elt[i].href;
-        if (link.includes("correction"))
-        {
-            if (!value.includes(link))
-                value.push(link);
+    const url_correction = window.location.href.replace("?", "").replace(".pdf", "-correction.csv");
+
+    const div = document.createElement("div");
+    const courses = document.createElement("ul");
+    const title = document.createElement("h4");
+    title.textContent = "Answers";
+    title.classList.add("epines-title");
+    div.appendChild(title);
+    div.appendChild(courses);
+    courses.classList.add("epines-hide")
+    courses.id = "epines-courses-mcq";
+
+    div.id = ("epines-mcq-answers");
+
+    title.addEventListener("click", () => { courses.classList.toggle("epines-hide") });
+
+    fetch(url_correction).then(r => r.text()).then(result => {
+        const lines = result.split("\n");
+        
+        // append title
+        lines[0].split(',').forEach((elt, index) => {
+            if (index == 0) return;
+            const span = document.createElement("span");
+            const course = document.createElement("li");
+            course.textContent = elt;
+            course.classList.add("epines-course-mcq");
+            span.appendChild(course);
+            span.classList.add("epines-course");
+            const answers = document.createElement("ol");
+            answers.classList.add("epines-hide");
+            answers.classList.add("epines-list-result-mcq");
+            course.addEventListener("click", () => { answers.classList.toggle("epines-hide") });
+            
+            span.appendChild(answers);
+            courses.appendChild(span);
+        });
+
+        // append answers
+        for (let i = 1; i < lines.length; i++) {
+            if (lines[i] == "") continue;
+            lines[i] = lines[i].trim();
+
+            lines[i].split(',').forEach((elt, index) => {
+                if (index == 0) return;
+                const answer = document.createElement("li");
+                const span = document.createElement("span");
+                span.textContent = elt;
+                span.classList.add("epines-spoiler");
+                answer.classList.add("epines-answer-mcq");
+                answer.appendChild(span);
+                courses.getElementsByClassName("epines-course")[(index-1)].children[1].appendChild(answer);
+            });          
         }
 
-        function reloadPage() {
-            location.reload();
-        };
+        // add a checkbox to active and disactive the spoiler mode
+        const checkboxSpoiler = document.createElement("input");
+        const label = document.createElement("label");
+        checkboxSpoiler.type = "checkbox";
+        checkboxSpoiler.checked = true;
+        checkboxSpoiler.id = "spoilerMode";
+        label.textContent = "spoiler";
+        label.style.padding = "0 5px";
+        label.setAttribute("for", "spoilerMode");
+        div.appendChild(checkboxSpoiler);
+        div.appendChild(label);
+        checkboxSpoiler.addEventListener("change", (e) => {
+            const elts = document.getElementsByClassName("epines-answer-mcq");
+            if (e.target.checked) {
+                for (let i = 0; i < elts.length; i++) {
+                    elts[i].firstChild.classList.add("epines-spoiler");
+                }
+            } else {
+                for (let i = 0; i < elts.length; i++) {
+                    elts[i].firstChild.classList.remove("epines-spoiler");
+                }
+            }
+        });
 
-        let l = link.split("."); 
-        if (l[l.length - 1] == "pdf")
-            elt[i].addEventListener('click', reloadPage);
-    }
-    
-    
-    localStorage.setItem(CORRECTION_TAG, JSON.stringify(value));
-}
-
-function addButtonToPdfViewer() {
-    let new_elt = document.createElement("div");
-    new_elt.style.backgroundColor = "#eeeee4";
-    new_elt.style.padding = "1rem 3rem";
-    
-    let qcmurl = url.split(".pdf")[0];
-    let n_qcm = qcmurl.split("-")[qcmurl.split("-").length - 1]; 
-    let year_qcm = url.split("/")[url.split("-").length];
-    
-    let value = getLocalStorage();
-    let correctionurl = value.find(url => {
-        return url.split("-")[url.split("-").length - 2] == n_qcm
-            && url.split("/")[url.split("/").length - 2] == year_qcm
+        document.body.children[0].appendChild(div);
     });
-
-    let p = document.createElement("p");
-    let a = document.createElement("a");
-    a.innerHTML = correctionurl;
-    a.href = correctionurl;
-    p.innerHTML = "Correction du QCM: ";
-    p.appendChild(a); 
-    p.style.margin = 0;
-    new_elt.appendChild(p);
-
-    document.body.children[0].appendChild(new_elt);
-    document.body.getElementsByTagName("header")[0].style.position = "relative";
-}
-
-
-function getLocalStorage() {
-    let value = JSON.parse(localStorage.getItem(CORRECTION_TAG));
-    if (value == null)
-        value = [];
-
-    return value;
-}
-
-function reloadPage() {
-    console.log("reload");
-    location.reload();
 }

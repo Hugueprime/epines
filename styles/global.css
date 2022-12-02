@@ -1,3 +1,10 @@
 .epines-hide {
     display: none;
 }
+
+.epines-title {
+    background-color: var(--background-color);
+    text-decoration: none;
+    color:  var(--title-color);
+    padding: 2px;
+}
