@@ -10,6 +10,7 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
     * [ionisx.com](#ionisx.com)
     * [debug-pro.com](#debug-pro.com)
     * [moodle.cri.epita.com](#moodle.cri.epita.com)
+    * [past-exams.epidocs.eu](#past-exams.epidocs.eu)
 * ### [Documentation](#documentation-1)
 * ### [How to contribute](#how-to-contribute-1)
 * ### [Contributors](#contributors-1)
@@ -64,6 +65,10 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 
 1. Make links clickable in feedbacks (why links aren't clickable by default ? just why ?)
 2. Create sub categories in courses to have the ability to see where we are on the page
+
+## [past-exams.epidocs.eu](past-exams.epidocs.eu) <span id="past-exams.epidocs.eu">
+
+1. Add a popup to see the result of each mcq directly into the pdf
 
 # Documentation
 
