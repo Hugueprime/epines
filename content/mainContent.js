@@ -1,8 +1,6 @@
 const url = window.location.href;
 
-if (isIntraAssistantUrl()) {
-    mainIntraAssistant();
-} else if (isIntraForgeUrl()) {
+if (isIntraForgeUrl()) {
     mainIntraForge();
 } else if (isIonisxUrl()) {
     mainIonisx();

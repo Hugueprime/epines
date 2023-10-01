@@ -6,10 +6,10 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 
 * ### [Installation](#installation-1)
 * ### [Functionnalities](#functionnalities-1)
-    * [intra.assistants.epita.fr](#intra.assistants.epita.fr)
+    * [intra.forge.epita.fr](#intra.forge.epita.fr)
     * [ionisx.com](#ionisx.com)
     * [debug-pro.com](#debug-pro.com)
-    * [moodle.cri.epita.com](#moodle.cri.epita.com)
+    * [moodle.epita.com](#moodle.epita.com)
     * [past-exams.epidocs.eu](#past-exams.epidocs.eu)
 * ### [Documentation](#documentation-1)
 * ### [How to contribute](#how-to-contribute-1)
@@ -36,10 +36,10 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 
 # Functionnalities 
 
-## [intra.assistants.epita.fr](https://intra.assistants.epita.fr) <span id="intra.assistants.epita.fr">
+## [intra.forge.epita.fr](https://intra.forge.epita.fr) <span id="intra.forge.epita.fr">
 
 1. Move assignement on top of assistants' picture (avoiding scroll)
-2. Create a copy button for the git url 
+2. Create an animation for the copy button of the git url 
 
 ## [ionisx.com](https://ionisx.com) <span id="ionisx.com">
 
@@ -61,10 +61,11 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 3. Create a copy button which creates the commands to build the AUTHORS file
 4. Create a summary when the url is invalid
 
-## [moodle.cri.epita.fr](moodle.cri.epita.fr) <span id="moodle.cri.epita.fr">
+## [moodle.epita.fr](moodle.epita.fr) <span id="moodle.epita.fr">
 
 1. Make links clickable in feedbacks (why links aren't clickable by default ? just why ?)
 2. Create sub categories in courses to have the ability to see where we are on the page
+3. Create link to open pdf in a new tab instead on the integrated reader
 
 ## [past-exams.epidocs.eu](past-exams.epidocs.eu) <span id="past-exams.epidocs.eu">
 

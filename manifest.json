@@ -1,12 +1,11 @@
 {
     "name": "Epines",
     "description": "L'extension qui vous enlève les épines du pied (et des sites de l'epita)!",
-    "version": "1.10",
+    "version": "1.11",
     "manifest_version": 2,
     "content_scripts": [
         {
             "matches": [
-                "https://intra.assistants.epita.fr/*",
                 "https://intra.forge.epita.fr/*",
                 "https://ionisx.com/*",
                 "https://courses.ionisx.com/*",
@@ -19,7 +18,6 @@
                 "/global/browser-polyfill.js",
                 "/global/tools.js",
                 "/content/tools.js",
-                "/content/intraAssistants.js",
                 "/content/intraForge.js",
                 "/content/debugPro.js",
                 "/content/moodle.js",
