@@ -3,15 +3,16 @@
     "description": "L'extension qui vous enlève les épines du pied (et des sites de l'epita)!",
     "version": "1.10",
     "manifest_version": 2,
-    "content_scripts":[
+    "content_scripts": [
         {
-            "matches":[
+            "matches": [
                 "https://intra.assistants.epita.fr/*",
+                "https://intra.forge.epita.fr/*",
                 "https://ionisx.com/*",
                 "https://courses.ionisx.com/*",
                 "http://www.debug-pro.com/*",
                 "http://debug-pro.com/*",
-                "https://moodle.cri.epita.fr/*",
+                "https://moodle.epita.fr/*",
                 "https://past-exams.epidocs.eu/*"
             ],
             "js": [
@@ -19,13 +20,14 @@
                 "/global/tools.js",
                 "/content/tools.js",
                 "/content/intraAssistants.js",
+                "/content/intraForge.js",
                 "/content/debugPro.js",
                 "/content/moodle.js",
                 "/content/ionisx.js",
                 "/content/epidocs.js",
                 "/content/mainContent.js"
             ],
-            "css":[
+            "css": [
                 "/styles/global.css",
                 "/styles/epidocs.css",
                 "/styles/moodleAdded.css",
@@ -35,7 +37,6 @@
                 "/styles/debugProAdded.css",
                 "/styles/ionisx.css"
             ]
-
         }
     ],
     "background": {
@@ -44,7 +45,7 @@
             "/background/background.js"
         ]
     },
-    "browser_action":{
+    "browser_action": {
         "default_icon": "./icons/icon32.png",
         "default_popup": "/popup/popup.html"
     },
