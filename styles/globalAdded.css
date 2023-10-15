@@ -56,6 +56,17 @@ li.epines, li.epines-dark{
     margin-left: 19px;
 }
 
+.epines-clickable
+{
+    color: var(--second-light);
+    cursor: pointer;
+}
+
+.epines-clickable:hover
+{
+    opacity: 0.8;
+}
+
 a.epines:hover {
     opacity: 0.8;
 }
