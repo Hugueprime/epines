@@ -63,3 +63,42 @@ function makeLinkClickable(txt) {
   });
   return txt;
 }
+
+function hide_option(element, text, customClass="epines-default-hide") {
+  if (element.childNodes.length == 0 || element.children.length == 0) return;
+  element.classList.add(customClass);
+  const parent = element.parentNode;
+  element.remove();
+  const hide_container = document.createElement("div");
+  hide_container.classList.add("epines-hide");
+  hide_container.appendChild(element);
+  parent.appendChild(hide_container);
+
+  const info = document.createElement("div");
+  info.classList.add("epines-clickable");
+  info.textContent = text;
+  parent.appendChild(info);
+
+  info.addEventListener("click", (elt) => {
+    elt.target.remove();
+    hide_container.classList.remove("epines-hide");
+  });
+}
+
+function remove_activity_without_access() {
+  const activities = document.getElementsByClassName("activity-item");
+  const to_remove = [];
+  for (let i = 0; i < activities.length; i++) {
+    if (!activities[i].getElementsByTagName("a").length) {
+      to_remove.push(activities[i]);
+    }
+  }
+  for (let i = 0; i < to_remove.length; i++) {
+    hide_option(
+      to_remove[i],
+      `Reveal '${to_remove[i].getAttribute(
+        "data-activityname"
+      )}' (Hidden by epines, (lack of access))`
+    );
+  }
+}

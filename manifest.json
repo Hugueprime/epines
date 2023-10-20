@@ -21,6 +21,7 @@
                 "/content/intraForge.js",
                 "/content/debugPro.js",
                 "/content/moodle/openDocInNewTabLinkController.js",
+                "/content/moodle/optionalSummaryCourseController.js",
                 "/content/moodle.js",
                 "/content/ionisx.js",
                 "/content/epidocs.js",

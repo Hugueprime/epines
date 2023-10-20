@@ -5,18 +5,16 @@ function isMoodleUrl() {
 function mainMoodle() {
   console.log("main moodle");
   actions();
-  // const link_change_page = document.querySelectorAll("[href='#']");
-  // for (let i = 0; i < link_change_page.length; i++) {
-  //   link_change_page[i].addEventListener("click", () => actions(500));
-  // }
 }
 
 async function actions() {
   const openDocInNewTabLink = new openDocInNewTabLinkController();
+  const optionalSummaryCourse = new optionalSummaryCourseController();
 
   const observer = new MutationObserver(() => {
     if (url.substring(0, 30) == "https://moodle.epita.fr/course") {
       openDocInNewTabLink.update();
+      optionalSummaryCourse.update();
     }
   });
 
@@ -31,7 +29,6 @@ async function actions() {
   if (url.substring(0, 30) == "https://moodle.epita.fr/course") {
     makeContentAfterLinkOptional();
     remove_activity_without_access();
-    optional_summary_course();
   }
 
   const correctUrl = acceptedUrl(
@@ -39,53 +36,6 @@ async function actions() {
     url
   );
   if (correctUrl) openPdfInBrower();
-}
-
-function hide_option(element, text) {
-  if (element.childNodes.length == 0 || element.children.length == 0) return;
-  const parent = element.parentNode;
-  element.remove();
-  const hide_container = document.createElement("div");
-  hide_container.classList.add("epines-hide");
-  hide_container.appendChild(element);
-  parent.appendChild(hide_container);
-
-  const info = document.createElement("div");
-  info.classList.add("epines-clickable");
-  info.textContent = text;
-  parent.appendChild(info);
-
-  info.addEventListener("click", (elt) => {
-    elt.target.remove();
-    hide_container.classList.remove("epines-hide");
-  });
-}
-
-function optional_summary_course() {
-  const courses = document.querySelectorAll("[data-region='course-content']");
-  for (let i = 0; i < courses.length; i++) {
-    const summary = courses[i].getElementsByClassName("course-summary");
-    if (summary.length)
-      hide_option(summary[0], "Show description (hidden by epines)");
-  }
-}
-
-function remove_activity_without_access() {
-  const activities = document.getElementsByClassName("activity-item");
-  const to_remove = [];
-  for (let i = 0; i < activities.length; i++) {
-    if (!activities[i].getElementsByTagName("a").length) {
-      to_remove.push(activities[i]);
-    }
-  }
-  for (let i = 0; i < to_remove.length; i++) {
-    hide_option(
-      to_remove[i],
-      `Reveal '${to_remove[i].getAttribute(
-        "data-activityname"
-      )}' (Hidden by epines, (lack of access))`
-    );
-  }
 }
 
 function makeContentAfterLinkOptional() {
