@@ -22,6 +22,7 @@
                 "/content/debugPro.js",
                 "/content/moodle/openDocInNewTabLinkController.js",
                 "/content/moodle/optionalSummaryCourseController.js",
+                "/content/moodle/tilesController.js",
                 "/content/moodle.js",
                 "/content/ionisx.js",
                 "/content/epidocs.js",

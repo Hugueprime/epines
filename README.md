@@ -66,6 +66,10 @@ L'extension qui vous enlève les épines du pied (et des sites de l'epita) !
 1. Make links clickable in feedbacks (why links aren't clickable by default ? just why ?)
 2. Create sub categories in courses to have the ability to see where we are on the page
 3. Create link to open pdf in a new tab instead on the integrated reader
+4. Resize all courses' header (generated images) as it takes a lot of space for nothing
+5. Remove all activities the current user has no access
+6. Hide description of activities
+7. Allow the user to continue navigate the page even when a section/tile is open
 
 ## [past-exams.epidocs.eu](past-exams.epidocs.eu) <span id="past-exams.epidocs.eu">
 

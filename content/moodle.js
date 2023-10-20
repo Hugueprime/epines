@@ -10,11 +10,13 @@ function mainMoodle() {
 async function actions() {
   const openDocInNewTabLink = new openDocInNewTabLinkController();
   const optionalSummaryCourse = new optionalSummaryCourseController();
+  const tiles = new tilesController();
 
   const observer = new MutationObserver(() => {
     if (url.substring(0, 30) == "https://moodle.epita.fr/course") {
       openDocInNewTabLink.update();
       optionalSummaryCourse.update();
+      tiles.update();
     }
   });
 
