@@ -38,6 +38,28 @@ async function actions() {
   if (correctUrl) openPdfInBrower();
 }
 
+function remove_activity_without_access() {
+  const activities = document.getElementsByClassName("activity-item");
+  const to_remove = [];
+  for (let i = 0; i < activities.length; i++) {
+    // not link and not a content without link so probably lack of access and so useless
+    if (!activities[i].getElementsByTagName("a").length) {
+      if (!activities[i].getElementsByClassName("contentwithoutlink").length)
+      {
+        to_remove.push(activities[i]);
+      }
+    }
+  }
+  for (let i = 0; i < to_remove.length; i++) {
+    hide_option(
+      to_remove[i],
+      `Reveal '${to_remove[i].getAttribute(
+        "data-activityname"
+      )}' (Hidden by epines, (lack of access))`
+    );
+  }
+}
+
 function makeContentAfterLinkOptional() {
   const descriptions = document.getElementsByClassName("contentafterlink");
   for (let i = 0; i < descriptions.length; i++) {
