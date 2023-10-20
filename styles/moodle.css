@@ -1,0 +1,15 @@
+.activity-item
+{
+    padding: .2rem !important;
+}
+
+.activityiconcontainer
+{
+    width: 30px;
+    height: 30px;
+}
+
+.dashboard-card .dashboard-card-img
+{
+    height: 4rem !important;
+}
