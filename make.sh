@@ -14,5 +14,5 @@ if [ $1 = 'update' ]; then
 fi
 
 if [ $1 = 'version' ]; then
-    grep -G "v[0-9\.]*</span>" popup/popup.html
+    sed -nE 's/.*<span class="version">v([0-9.]+).*/\1/p' popup/popup.html
 fi
