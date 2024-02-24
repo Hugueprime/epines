@@ -1,60 +1,66 @@
 {
-    "name": "Epines",
-    "description": "L'extension qui vous enlève les épines du pied (et des sites de l'epita)!",
-    "version": "1.12",
-    "manifest_version": 2,
-    "content_scripts": [
-        {
-            "matches": [
-                "https://intra.forge.epita.fr/*",
-                "https://ionisx.com/*",
-                "https://courses.ionisx.com/*",
-                "http://www.debug-pro.com/*",
-                "http://debug-pro.com/*",
-                "https://moodle.epita.fr/*",
-                "https://past-exams.epidocs.eu/*"
-            ],
-            "js": [
-                "/global/browser-polyfill.js",
-                "/global/tools.js",
-                "/content/tools.js",
-                "/content/intraForge.js",
-                "/content/debugPro.js",
-                "/content/moodle/openDocInNewTabLinkController.js",
-                "/content/moodle/optionalSummaryCourseController.js",
-                "/content/moodle/tilesController.js",
-                "/content/moodle.js",
-                "/content/ionisx.js",
-                "/content/epidocs.js",
-                "/content/mainContent.js"
-            ],
-            "css": [
-                "/styles/global.css",
-                "/styles/epidocs.css",
-                "/styles/moodleAdded.css",
-                "/styles/moodle.css",
-                "/styles/globalAdded.css",
-                "/styles/ionisxAdded.css",
-                "/styles/debugPro.css",
-                "/styles/debugProAdded.css",
-                "/styles/ionisx.css"
-            ]
-        }
-    ],
-    "background": {
-        "scripts": [
-            "/global/browser-polyfill.js",
-            "/background/background.js"
-        ]
-    },
-    "browser_action": {
-        "default_icon": "./icons/icon32.png",
-        "default_popup": "/popup/popup.html"
-    },
-    "permissions": [
-        "webRequest",
-        "webRequestBlocking",
-        "storage",
-        "*://www.youtube.com/*"
+  "name": "Epines",
+  "description": "L'extension qui vous enl\u00e8ve les \u00e9pines du pied (et des sites de l'epita)!",
+  "version": "1.13",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": [
+        "https://intra.forge.epita.fr/*",
+        "https://ionisx.com/*",
+        "https://courses.ionisx.com/*",
+        "http://www.debug-pro.com/*",
+        "http://debug-pro.com/*",
+        "https://moodle.epita.fr/*",
+        "https://past-exams.epidocs.eu/*"
+      ],
+      "js": [
+        "/global/browser-polyfill.js",
+        "/global/tools.js",
+        "/content/tools.js",
+        "/content/intraForge.js",
+        "/content/debugPro.js",
+        "/content/moodle/openDocInNewTabLinkController.js",
+        "/content/moodle/optionalSummaryCourseController.js",
+        "/content/moodle/tilesController.js",
+        "/content/moodle/bookmarks.js",
+        "/content/moodle.js",
+        "/content/ionisx.js",
+        "/content/epidocs.js",
+        "/content/mainContent.js"
+      ],
+      "css": [
+        "/styles/global.css",
+        "/styles/epidocs.css",
+        "/styles/moodleAdded.css",
+        "/styles/moodle.css",
+        "/styles/globalAdded.css",
+        "/styles/ionisxAdded.css",
+        "/styles/debugPro.css",
+        "/styles/debugProAdded.css",
+        "/styles/ionisx.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "/global/browser-polyfill.js",
+      "/background/background.js"
     ]
+  },
+  "browser_action": {
+    "default_icon": "./icons/icon32.png",
+    "default_popup": "/popup/popup.html"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "*://www.youtube.com/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{b2fc967b-3f27-4998-b8cc-e42074aea0f3}"
+    }
+  }
 }
