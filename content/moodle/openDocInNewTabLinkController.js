@@ -28,7 +28,7 @@ class openDocInNewTabLinkController {
     link.classList.add("epines-open-activity");
     link.style.whiteSpace = "nowrap";
     link.style.paddingRight = "20px";
-    document.querySelectorAll(["[data-url]"]).forEach((elt) => {
+    document.querySelectorAll([this.selector]).forEach((elt) => {
       // link already here
       if (elt.getElementsByClassName("epines-open-activity").length != 0)
         return;

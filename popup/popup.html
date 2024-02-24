@@ -34,6 +34,19 @@
                 <input type="text" id="instanceVideoPlayer" pattern="([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}"/>
             </span>
         </section>
+
+        <section>
+            <h4 class="title">Load URL redirections</h4>
+            <span  id="customRedirect-config" class="input_label">
+                <label class='decla'>URL redirection server :</label>
+                <input type="text" id="URLRedirect" pattern="https?://([a-zA-Z0-9]{1,61}\.)?[a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}.*"/>
+            </span>
+            <button id='redirectFetch'>Fetch</button>
+            <span class="inline">
+                <label id='redirectLastCheck'>Last check: 00/00</label>
+                <label id='redirectLastVersion'>v0.0</label>
+            </span>
+        </section>
     
         <section>
             <h4 class="title">Custom Deadline</h4>
@@ -66,26 +79,10 @@
                 <input type="text" id="login" pattern="[a-z]+\.[a-z]+" placeholder="login"/>
             </span>
         </section>
-
-
-        <section class="menu">
-            <h3 class="title">Links </h3>
-            <span class="links-global">
-                <a class="link" href="https://moodle.cri.epita.fr/">Moodle (cours)</a>
-                <a class="link" href="https://past-exams.epidocs.eu/">Epidocs (exams)</a>
-                <a class="link" href="https://outlook.office.com/mail/inbox">Outlook</a>
-                <a class="link" href="https://zeus.ionis-it.com/home">Zeus</a>
-                <a class="link" href="https://prepa-epita.helvetius.net/pegasus/index.php#">Pegasus</a>
-                <a class="link" href="https://ionisx.com/dashboard">Ionisx</a>
-                <a></a>
-            </span>
-        </section>
-        
     </main>
     
     <footer>
-        <a class="link" href="https://linktr.ee/makerlab.epita">With Makerlab x l'atelier (Stras)</a>
-        <span class="version">v1.12</span>
+        <span class="version">v1.13</span>
     </footer>
 </body>
 

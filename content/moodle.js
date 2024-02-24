@@ -12,6 +12,8 @@ async function actions() {
   const optionalSummaryCourse = new optionalSummaryCourseController();
   const tiles = new tilesController();
 
+  bookmarks();
+
   const observer = new MutationObserver(() => {
     if (url.substring(0, 30) == "https://moodle.epita.fr/course") {
       openDocInNewTabLink.update();
